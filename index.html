@@ -59,7 +59,23 @@
 
         .hero { padding: 0px 20px 30px 20px; text-align: center; }
         .hero h2 { font-size: 0.75rem; letter-spacing: 12px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; font-weight: 300; }
-        .brand-title { font-size: 1.8rem; font-weight: 800; color: white; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
+        
+        /* GOLD SHINE ANIMATION */
+        .gold-glow-text {
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gold-shine 4s linear infinite;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
+            font-weight: 800;
+        }
+
+        @keyframes gold-shine {
+            to { background-position: 200% center; }
+        }
+
+        .brand-title { font-size: 1.8rem; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
         .tagline { font-size: 0.7rem; color: #888; font-style: italic; margin-top: 10px; letter-spacing: 1px; }
 
         .social-link {
@@ -128,7 +144,7 @@
         /* PRICING SECTION */
         .pricing-section { padding: 40px 20px; max-width: 850px; margin: 0 auto; }
         .section-header { margin-bottom: 25px; text-align: center; }
-        .section-header h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; color: var(--gold); }
+        .service-header-glow { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; }
 
         .table-container { overflow-x: auto; background: rgba(255,255,255,0.01); border: 1px solid var(--thin-border); border-radius: 8px; position: relative; }
         table { width: 100%; border-collapse: collapse; min-width: 450px; }
@@ -138,12 +154,70 @@
         .price-col { font-weight: 700; color: white; text-align: right; }
         .highlight-col { background: rgba(212, 175, 55, 0.05); }
 
+        /* --- STAR FEATURE BOX --- */
+        .star-feature-container {
+            margin: 40px 20px 0 20px;
+            padding: 2px;
+            border-radius: 20px 20px 0 0;
+            background: var(--gold-gradient);
+            background-size: 300% 300%;
+            animation: border-dance 4s linear infinite;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .star-inner {
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+            padding: 30px 20px;
+            border-radius: 18px 18px 0 0;
+            text-align: center;
+        }
+
+        .status-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .star-rating { color: var(--gold-light); font-size: 1rem; }
+        .time-tag { background: rgba(255,255,255,0.1); color: #fff; font-size: 0.7rem; padding: 4px 10px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); font-weight: bold; }
+
+        .star-title { color: #fff; font-size: 1.4rem; font-weight: 800; margin-bottom: 15px; letter-spacing: 1px; }
+        .star-description p { color: #bbb; font-size: 0.9rem; line-height: 1.5; margin: 0; }
+        .star-description strong { color: var(--gold-light); }
+
+        .price-highlight { margin: 20px 0; }
+        .price-highlight .label { display: block; color: var(--gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
+        .price-highlight .amount { color: #fff; font-size: 2.2rem; font-weight: 900; }
+
+        .specs-row { display: flex; justify-content: space-between; margin-top: 25px; gap: 8px; }
+        .spec-box { flex: 1; background: rgba(212, 175, 55, 0.05); padding: 10px 5px; border-radius: 10px; border: 1px solid var(--thin-border); }
+        .spec-icon { display: block; font-size: 1.2rem; margin-bottom: 5px; }
+        .spec-text { font-size: 0.6rem; color: #eee; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- WA EXTENSION BAR --- */
+        .whatsapp-extension {
+            margin: 0 20px 40px 20px;
+            padding: 2px;
+            border-radius: 0 0 20px 20px;
+            background: linear-gradient(90deg, var(--gold), #000, var(--gold));
+        }
+
+        .wa-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0d0d0d;
+            padding: 15px 20px;
+            border-radius: 0 0 18px 18px;
+            text-decoration: none;
+        }
+
+        .wa-content { display: flex; align-items: center; gap: 10px; }
+        .wa-icon { width: 22px; height: 22px; filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.4)); }
+        .wa-bar p { color: #fff; font-size: 0.8rem; margin: 0; }
+        .wa-bar p span { color: var(--gold-light); font-weight: bold; }
+
         /* TESTIMONIALS */
         .testimonials-section { background: #080808; padding: 40px 0; border-top: 1px solid var(--thin-border); border-bottom: 1px solid var(--thin-border); margin: 40px 0; }
         .testimonial-track { display: flex; overflow-x: auto; gap: 20px; padding: 0 20px; scrollbar-width: none; }
         .testimonial-track::-webkit-scrollbar { display: none; }
         .testimonial-card { min-width: 280px; background: #111; padding: 25px; border-left: 2px solid var(--gold); border-radius: 0 4px 4px 0; }
-        .testimonial-card p { font-style: italic; font-size: 0.8rem; color: var(--soft-white); margin: 0; }
+        .testimonial-card p { font-style: italic; font-size: 0.8rem; color: var(--soft-white); margin: 0; text-align: left; }
         .testimonial-author { color: var(--gold); font-weight: bold; font-size: 0.7rem; margin-top: 15px; display: block; text-transform: uppercase; letter-spacing: 1px; }
 
         /* MAP */
@@ -163,6 +237,12 @@
 
         footer { text-align: center; color: #444; font-size: 0.6rem; padding-bottom: 30px; letter-spacing: 2px; }
 
+        @keyframes border-dance {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         @media (max-width: 600px) {
             html { border-width: 1px; }
             .brand-title { font-size: 1.5rem; }
@@ -180,7 +260,7 @@
 
 <section class="hero">
     <h2>BESPOKE DETAILING AT YOUR DOORSTEP</h2>
-    <h1 class="brand-title">Xpert911 | Auto Care</h1>
+    <h1 class="brand-title gold-glow-text">Xpert911 | Auto Care</h1>
     <p class="tagline">Preserving Calicut’s finest automobiles.</p>
     <div class="social-container">
         <a href="https://www.instagram.com/xpert911.co/" target="_blank" class="social-link">Instagram: @xpert911.co</a>
@@ -223,15 +303,15 @@
 
 <section class="pricing-section">
     <div class="section-header">
-        <h3>Signature Services</h3>
+        <h3 class="gold-glow-text service-header-glow">Service Description</h3>
     </div>
     <div class="table-container">
         <table>
             <thead>
                 <tr>
                     <th>Vehicle Type</th>
-                    <th style="text-align:right">Maintenance</th>
-                    <th style="text-align:right" class="highlight-col">Signature</th>
+                    <th style="text-align:right">Basic Wash</th>
+                    <th style="text-align:right" class="highlight-col">Premium Wash</th>
                     <th style="text-align:right">Full Detail</th>
                 </tr>
             </thead>
@@ -245,6 +325,51 @@
         </table>
     </div>
 </section>
+
+<div class="star-feature-container">
+    <div class="star-inner">
+        <div class="status-bar">
+            <span class="star-rating">★★★★★</span>
+            <span class="time-tag">⏱ 45 MINS</span>
+        </div>
+
+        <h2 class="star-title">Ceramic-Effect Premium Wash</h2>
+        
+        <div class="star-description">
+            <p>Our advanced premium shampoo is specially formulated to deliver a <strong>deep gloss finish</strong>, adding a slick, protective layer that gives your car a <strong>ceramic-like shine.</strong></p>
+        </div>
+
+        <div class="price-highlight">
+            <span class="label">Upgrade for only</span>
+            <span class="amount">₹599</span>
+        </div>
+
+        <div class="specs-row">
+            <div class="spec-box">
+                <span class="spec-icon">✨</span>
+                <span class="spec-text">Gloss</span>
+            </div>
+            <div class="spec-box">
+                <span class="spec-icon">🛡️</span>
+                <span class="spec-text">Shield</span>
+            </div>
+            <div class="spec-box">
+                <span class="spec-icon">💧</span>
+                <span class="spec-text">Slick</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="whatsapp-extension">
+    <a href="https://wa.me/917356204215?text=Connect%20with%20us%20to%20know%20more%20about%20ceramic%20washing" class="wa-bar">
+        <div class="wa-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" class="wa-icon">
+            <p>Connect with us to know more about <span>Ceramic Washing</span></p>
+        </div>
+        <span style="color:var(--gold)">→</span>
+    </a>
+</div>
 
 <section class="testimonials-section">
     <div class="section-header">
@@ -310,7 +435,4 @@
             setTimeout(() => shareBtn.innerText = 'Share Website', 2000);
         }
     });
-</script>
-
-</body>
-</html>
+<
