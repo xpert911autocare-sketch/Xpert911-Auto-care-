@@ -3,105 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xpert911 Auto Care | 24/7 Doorstep Car Wash Calicut</title>
+    <title>Xpert911 Autocare | 24/7 Doorstep Car Wash Calicut</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --gold: #d4af37;
-            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f1d592 50%, #d4af37 100%);
+            --gold-light: #f1d592;
             --deep-black: #050505;
+            --card-bg: #0d0d0d;
             --soft-white: #e0e0e0;
             --whatsapp: #25D366;
+            --thin-border: rgba(212, 175, 55, 0.2);
         }
 
+        /* ANIMATIONS */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         html { border: 2px solid var(--gold); min-height: 100%; box-sizing: border-box; background-color: var(--deep-black); scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--deep-black); color: var(--soft-white); padding-bottom: 120px; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--deep-black); color: var(--soft-white); padding-bottom: 120px; line-height: 1.6; }
 
-        /* HEADER */
-        .main-header { background-color: #0d0d0d; border-bottom: 1px solid #222; padding: 12px 0; width: 100%; position: sticky; top: 0; z-index: 1000; }
-        .header-content { max-width: 850px; margin: 0 auto; padding: 0 15px; display: flex; justify-content: space-between; align-items: center; }
-        .header-logo { height: 30px; width: auto; }
+        /* NAVIGATION */
+        .main-header { background-color: #0d0d0d; border-bottom: 1px solid #222; padding: 15px 0; width: 100%; position: sticky; top: 0; z-index: 1000; }
+        .header-content { max-width: 900px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header-logo { height: 25px; width: auto; }
         .main-nav { display: flex; gap: 15px; }
-        .nav-link { color: #888; text-decoration: none; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-link.active-link { color: var(--gold); border-bottom: 1px solid var(--gold); }
+        .nav-link { color: #888; text-decoration: none; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active-link { color: var(--gold); }
 
         /* HERO */
-        .hero { padding: 40px 20px; text-align: center; }
-        .badge { border: 1px solid var(--gold); color: var(--gold); padding: 4px 12px; font-size: 0.6rem; border-radius: 20px; margin-bottom: 15px; display: inline-block; font-weight: 800; letter-spacing: 2px; }
-        .gold-glow { background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: gold-shine 4s linear infinite; font-weight: 800; }
+        .hero { padding: 60px 20px 40px 20px; text-align: center; }
+        .gold-glow { 
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); 
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            animation: gold-shine 4s linear infinite; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+        }
         @keyframes gold-shine { to { background-position: 200% center; } }
-        .brand-title { font-size: 2rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+        .hero h1 { font-size: 2.2rem; margin: 0; }
 
-        /* THE XPERT911 STANDARD PILLARS */
-        .standard-section { padding: 40px 20px; max-width: 850px; margin: 0 auto; text-align: center; }
-        .promise-tag { font-size: 0.6rem; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; }
-        .divider { width: 50px; height: 1px; background: var(--gold); margin: 15px auto; position: relative; }
+        /* THE XPERT911 STANDARD - 6 PILLARS */
+        .standard-section { padding: 40px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
+        .promise-tag { font-size: 0.6rem; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+        .standard-title { font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; margin-top: 0; }
+        .divider { width: 60px; height: 1px; background: var(--gold); margin: 20px auto; position: relative; }
         .divider::after { content: '◆'; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--gold); }
         
         .pillar-stack { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
-        .pillar-card { border: 1px solid #1a1a1a; padding: 30px 20px; border-radius: 4px; background: #0d0d0d; text-align: center; }
-        .pillar-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-        .pillar-card h4 { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; margin: 5px 0; color: white; font-weight: 800; }
+        .pillar-card { border: 1px solid #1a1a1a; padding: 35px 20px; border-radius: 4px; background: var(--card-bg); transition: 0.3s; }
+        .pillar-card:hover { border-color: var(--gold); }
+        .pillar-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+        .pillar-card h4 { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; margin: 10px 0; color: white; font-weight: 800; }
         .pillar-card p { font-size: 0.65rem; color: #666; margin: 0; }
 
+        /* CERAMIC UPGRADE BOX */
+        .upgrade-section { padding: 40px 20px; max-width: 600px; margin: 0 auto; }
+        .upgrade-box { border: 2px solid var(--gold); border-radius: 25px; padding: 40px 20px; text-align: center; background: radial-gradient(circle at center, #111 0%, #050505 100%); }
+        .stars { color: var(--gold); font-size: 1rem; margin-bottom: 15px; }
+        .timer-badge { background: #1a1a1a; padding: 5px 12px; border-radius: 5px; font-size: 0.6rem; color: #fff; text-transform: uppercase; position: absolute; top: 20px; right: 20px; display: flex; align-items: center; gap: 5px; }
+        .upgrade-box { position: relative; }
+        .upgrade-title { font-size: 1.8rem; font-weight: 800; margin: 10px 0; color: white; }
+        .upgrade-desc { font-size: 0.8rem; color: #888; max-width: 400px; margin: 0 auto 25px auto; }
+        .upgrade-desc span { color: var(--gold-light); font-weight: bold; }
+        .price-tag { font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 30px; display: block; }
+        .upgrade-features { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        .feat-item { border: 1px solid #333; padding: 15px 5px; border-radius: 10px; }
+        .feat-icon { font-size: 1.2rem; display: block; margin-bottom: 5px; }
+        .feat-item span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+
         /* PRICING TABLE */
-        .pricing-section { padding: 40px 20px; max-width: 850px; margin: 0 auto; }
-        .table-container { overflow-x: auto; border: 1px solid #1a1a1a; border-radius: 4px; }
-        table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        th { text-align: left; padding: 15px; font-size: 0.6rem; color: var(--gold); text-transform: uppercase; border-bottom: 1px solid #1a1a1a; }
-        td { padding: 15px; font-size: 0.8rem; border-bottom: 1px solid #111; color: #888; }
-        .price-text { color: white; font-weight: 700; text-align: right; }
+        .service-description { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+        .section-label { text-align: center; font-size: 0.8rem; font-weight: 800; letter-spacing: 4px; color: var(--gold); margin-bottom: 30px; text-transform: uppercase; }
+        .table-container { overflow-x: auto; border: 1px solid #1a1a1a; border-radius: 8px; background: #080808; }
+        table { width: 100%; border-collapse: collapse; min-width: 650px; }
+        th { text-align: left; padding: 20px; font-size: 0.6rem; color: var(--gold); text-transform: uppercase; border-bottom: 1px solid #1a1a1a; }
+        td { padding: 20px; font-size: 0.85rem; border-bottom: 1px solid #111; color: white; }
+        .price-val { font-weight: 700; text-align: right; }
+        .premium-col { background: rgba(212, 175, 55, 0.05); }
         
-        .best-seller-col { background: rgba(212, 175, 55, 0.05); position: relative; }
-        .best-seller-badge { position: absolute; top: 10px; right: 10px; background: var(--gold-gradient); color: black; font-size: 0.5rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; }
+        /* FIXED BEST SELLER BADGE */
+        .best-seller-wrapper { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+        .bs-badge { background: var(--gold-gradient); color: black; font-size: 0.5rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
 
         /* BOOKING FORM */
-        .booking-section { max-width: 850px; margin: 40px auto; padding: 20px; }
-        .form-title { font-size: 1.5rem; text-transform: uppercase; text-align: center; letter-spacing: 2px; margin: 0; }
-        .form-subtitle { font-size: 0.7rem; color: #555; text-align: center; margin-bottom: 40px; }
+        .booking-section { max-width: 600px; margin: 40px auto; padding: 20px; }
+        .book-title { font-size: 1.8rem; text-transform: uppercase; text-align: center; letter-spacing: 2px; font-weight: 800; margin-bottom: 10px; }
+        .book-subtitle { font-size: 0.75rem; color: #666; text-align: center; margin-bottom: 40px; }
         
         .booking-form { display: flex; flex-direction: column; gap: 20px; }
-        .input-group label { font-size: 0.65rem; color: var(--gold); text-transform: uppercase; font-weight: 700; margin-bottom: 8px; display: block; }
+        .input-group label { font-size: 0.65rem; color: var(--gold); text-transform: uppercase; font-weight: 800; margin-bottom: 8px; display: block; letter-spacing: 1px; }
         .input-group input, .input-group select, .input-group textarea {
-            background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 4px; color: white; padding: 15px; width: 100%; box-sizing: border-box; font-size: 0.85rem;
+            background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 4px; color: white; padding: 18px; width: 100%; box-sizing: border-box; font-size: 0.9rem; outline: none; transition: 0.3s;
         }
-        .btn-send { border: 1px solid var(--gold); background: transparent; color: var(--gold); padding: 16px; text-transform: uppercase; font-weight: 800; cursor: pointer; border-radius: 4px; margin-top: 10px; }
+        .input-group input:focus { border-color: var(--gold); }
+        .btn-whatsapp-form { border: 1px solid var(--gold); background: transparent; color: var(--gold); padding: 20px; text-transform: uppercase; font-weight: 800; cursor: pointer; border-radius: 4px; letter-spacing: 1.5px; margin-top: 10px; transition: 0.3s; }
+        .btn-whatsapp-form:hover { background: var(--gold); color: black; }
 
-        /* BOTTOM BAR */
+        /* STICKY BOTTOM BAR */
         .bottom-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #050505; padding: 15px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; box-sizing: border-box; border-top: 1px solid #111; z-index: 2000; }
-        .bar-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; text-decoration: none; border-radius: 6px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
+        .bar-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; text-decoration: none; border-radius: 6px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         .bar-call { background: #111; border: 1px solid #222; color: white; }
-        .bar-wa { background: #25D366; color: black; }
+        .bar-wa { background: var(--whatsapp); color: black; }
 
-        @media (max-width: 600px) { .header-content { flex-direction: column; gap: 10px; } }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.6rem; }
+            .header-content { flex-direction: column; gap: 10px; }
+            .upgrade-title { font-size: 1.4rem; }
+        }
     </style>
 </head>
 <body>
 
 <header class="main-header">
     <div class="header-content">
-        <img src="logo.png" class="header-logo">
+        <img src="logo.png" alt="Xpert911" class="header-logo">
         <nav class="main-nav">
             <a href="#about" class="nav-link">About</a>
-            <a href="#about" class="nav-link active-link">Services</a>
+            <a href="#about" class="nav-link">Services</a>
             <a href="#pricing" class="nav-link">Packages</a>
-            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#pricing" class="nav-link active-link">Pricing</a>
         </nav>
     </div>
 </header>
 
 <section class="hero reveal">
-    <div class="badge">24/7 MOBILE DETAILING</div>
-    <h1 class="brand-title gold-glow">Xpert911 Autocare</h1>
+    <h1 class="gold-glow">Xpert911 Autocare</h1>
 </section>
 
 <section id="about" class="standard-section reveal">
     <p class="promise-tag">Our Promise</p>
-    <h2 class="brand-title">The <span class="gold-glow">Xpert911</span> Standard</h2>
+    <h2 class="standard-title">The <span class="gold-glow">Xpert911</span> Standard</h2>
     <div class="divider"></div>
 
     <div class="pillar-stack">
@@ -138,7 +168,24 @@
     </div>
 </section>
 
-<section id="pricing" class="pricing-section reveal">
+<section class="upgrade-section reveal">
+    <div class="upgrade-box">
+        <div class="timer-badge">⏱ 45 MINS</div>
+        <div class="stars">★★★★★</div>
+        <h2 class="upgrade-title">Ceramic-Effect Premium Wash</h2>
+        <p class="upgrade-desc">Our advanced premium shampoo delivers a <span>deep gloss finish</span> and a <span>ceramic-like shine</span>.</p>
+        <p style="font-size:0.6rem; text-transform:uppercase; color:var(--gold); margin-bottom:5px;">Upgrade for only</p>
+        <span class="price-tag">₹599</span>
+        <div class="upgrade-features">
+            <div class="feat-item"><span class="feat-icon">✨</span><span>Gloss</span></div>
+            <div class="feat-item"><span class="feat-icon">🛡</span><span>Shield</span></div>
+            <div class="feat-item"><span class="feat-icon">💧</span><span>Slick</span></div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="service-description reveal">
+    <h3 class="section-label">Service Description</h3>
     <div class="table-container">
         <table>
             <thead>
@@ -150,19 +197,29 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Hatchback</td><td class="price-text">₹249</td><td class="price-text best-seller-col">₹399 <span class="best-seller-badge">Best Seller</span></td><td class="price-text">₹899</td></tr>
-                <tr><td>Sedan</td><td class="price-text">₹299</td><td class="price-text best-seller-col">₹449</td><td class="price-text">₹999</td></tr>
-                <tr><td>Compact SUV</td><td class="price-text">₹349</td><td class="price-text best-seller-col">₹499</td><td class="price-text">₹1099</td></tr>
-                <tr><td>SUV</td><td class="price-text">₹399</td><td class="price-text best-seller-col">₹599</td><td class="price-text">₹1299</td></tr>
-                <tr><td>MPV</td><td class="price-text">₹449</td><td class="price-text best-seller-col">₹649</td><td class="price-text">₹1399</td></tr>
+                <tr>
+                    <td>Hatchback</td>
+                    <td class="price-val">₹249</td>
+                    <td class="price-val premium-col">
+                        <div class="best-seller-wrapper">
+                            <span class="bs-badge">Best Seller</span>
+                            ₹399
+                        </div>
+                    </td>
+                    <td class="price-val">₹899</td>
+                </tr>
+                <tr><td>Sedan</td><td class="price-val">₹299</td><td class="price-val premium-col">₹449</td><td class="price-val">₹999</td></tr>
+                <tr><td>Compact SUV</td><td class="price-val">₹349</td><td class="price-val premium-col">₹499</td><td class="price-val">₹1099</td></tr>
+                <tr><td>SUV</td><td class="price-val">₹399</td><td class="price-val premium-col">₹599</td><td class="price-val">₹1299</td></tr>
+                <tr><td>MPV</td><td class="price-val">₹449</td><td class="price-val premium-col">₹649</td><td class="price-val">₹1399</td></tr>
             </tbody>
         </table>
     </div>
 </section>
 
 <section id="book" class="booking-section reveal">
-    <h2 class="form-title">Book An Appointment</h2>
-    <p class="form-subtitle">We'll confirm via WhatsApp within 30 minutes</p>
+    <h2 class="book-title">Book An Appointment</h2>
+    <p class="book-subtitle">We'll confirm via WhatsApp within 30 minutes</p>
     
     <form class="booking-form" id="waForm">
         <div class="input-group"><label>Your Name</label><input type="text" id="name" placeholder="Full name" required></div>
@@ -189,13 +246,13 @@
             </select>
         </div>
         <div class="input-group"><label>Location / Address</label><textarea id="location" placeholder="Your address or landmark in Calicut..." rows="3" required></textarea></div>
-        <button type="submit" class="btn-send">Send Booking Via WhatsApp →</button>
+        <button type="submit" class="btn-whatsapp-form">Send Booking Via WhatsApp →</button>
     </form>
 </section>
 
 <div class="bottom-bar">
     <a href="tel:+917356204215" class="bar-btn bar-call">📞 Call Now</a>
-    <a href="https://wa.me/917356204215" class="bar-btn bar-wa">WhatsApp</a>
+    <a href="https://wa.me/917356204215" class="bar-btn bar-wa">💬 WhatsApp</a>
 </div>
 
 <script>
@@ -206,7 +263,7 @@
 
     document.getElementById('waForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const msg = `New Booking Request:%0A- Name: ${document.getElementById('name').value}%0A- Vehicle: ${document.getElementById('vehicle').value}%0A- Service: ${document.getElementById('service').value}%0A- Date/Time: ${document.getElementById('date').value} at ${document.getElementById('time').value}%0A- Location: ${document.getElementById('location').value}`;
+        const msg = `Booking Request:%0A- Name: ${document.getElementById('name').value}%0A- Vehicle: ${document.getElementById('vehicle').value}%0A- Service: ${document.getElementById('service').value}%0A- Date/Time: ${document.getElementById('date').value} at ${document.getElementById('time').value}%0A- Location: ${document.getElementById('location').value}`;
         window.open(`https://wa.me/917356204215?text=${msg}`, '_blank');
     });
 </script>
