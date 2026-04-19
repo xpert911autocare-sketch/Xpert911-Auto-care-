@@ -16,30 +16,6 @@
     <meta property="og:url" content="https://xpert911.co">
     <meta property="og:type" content="website">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AutoDetailing",
-      "name": "Xpert911 Auto Care",
-      "description": "Premium Mobile Car Detailing and Doorstep Car Spa in Calicut.",
-      "image": "xpert911 calicut .png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Calicut",
-        "addressRegion": "Kerala",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "11.2588",
-        "longitude": "75.7804"
-      },
-      "url": "https://xpert911.co",
-      "telephone": "+917356204215",
-      "priceRange": "₹249 - ₹1399"
-    }
-    </script>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
 
     <style>
@@ -53,22 +29,8 @@
             --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f1d592 50%, #d4af37 100%);
         }
 
-        html {
-            border: 2px solid var(--gold);
-            min-height: 100%;
-            box-sizing: border-box;
-            background-color: var(--deep-black);
-            scroll-behavior: smooth;
-        }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background-color: var(--deep-black); 
-            color: var(--soft-white); 
-            line-height: 1.6;
-            padding-bottom: 80px; 
-        }
+        html { border: 2px solid var(--gold); min-height: 100%; box-sizing: border-box; background-color: var(--deep-black); scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--deep-black); color: var(--soft-white); line-height: 1.6; padding-bottom: 80px; }
 
         header { padding: 60px 0 30px 0; text-align: center; }
         .logo { width: 85%; max-width: 450px; height: auto; filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.2)); }
@@ -77,47 +39,33 @@
         .hero h2 { font-size: 0.75rem; letter-spacing: 12px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; font-weight: 300; }
         .gold-glow-text {
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gold-shine 4s linear infinite;
-            font-weight: 800;
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: gold-shine 4s linear infinite; font-weight: 800;
         }
         @keyframes gold-shine { to { background-position: 200% center; } }
         .brand-title { font-size: 1.8rem; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
         .tagline { font-size: 0.7rem; color: #888; font-style: italic; margin-top: 10px; }
-
+        
         .social-link {
             display: inline-flex; margin-top: 15px; align-items: center; color: var(--soft-white);
             text-decoration: none; font-size: 0.75rem; border: 1px solid var(--thin-border);
             padding: 5px 15px; border-radius: 20px; transition: 0.3s;
         }
-        .social-link:hover { background: var(--gold); color: black; }
 
-        /* SLIDER CSS */
+        /* SLIDER CSS FROM REFERENCE */
         .comparison-section { padding: 40px 20px; max-width: 850px; margin: 0 auto; text-align: center; }
-        .comparison-container {
-            position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden;
-            border: 1px solid var(--thin-border); border-radius: 8px; background: #111;
-        }
-        .comparison-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+        .comparison-container { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--thin-border); border-radius: 8px; }
+        .comparison-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
         .img-before { z-index: 1; clip-path: inset(0 50% 0 0); }
-        .comparison-slider {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: transparent; z-index: 10; cursor: ew-resize; appearance: none; outline: none; margin: 0;
-        }
-        .slider-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--gold); z-index: 5; transform: translateX(-50%); pointer-events: none; }
-        .slider-button {
-            position: absolute; top: 50%; left: 50%; width: 40px; height: 40px;
-            background: var(--gold); border-radius: 50%; z-index: 6; transform: translate(-50%, -50%);
-            display: flex; align-items: center; justify-content: center; pointer-events: none;
-        }
+        .comparison-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; z-index: 10; cursor: ew-resize; appearance: none; outline: none; }
+        .slider-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--gold); z-index: 5; transform: translateX(-50%); }
+        .slider-button { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; background: var(--gold); border-radius: 50%; z-index: 6; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; }
         .slider-button::before { content: '⇄'; color: black; font-weight: bold; }
         .label-badge { position: absolute; top: 20px; padding: 5px 15px; background: rgba(0,0,0,0.7); border-radius: 20px; font-size: 0.6rem; text-transform: uppercase; z-index: 7; color: white; }
         .label-before { left: 20px; } .label-after { right: 20px; color: var(--gold); }
 
-        /* AD SECTION */
-        .star-feature-container { margin: 40px 20px; padding: 2px; border-radius: 20px; background: var(--gold-gradient); background-size: 300% 300%; animation: border-dance 4s linear infinite; }
+        /* DETAILED PREMIUM AD */
+        .star-feature-container { margin: 40px 20px; padding: 2px; border-radius: 20px; background: var(--gold-gradient); animation: border-dance 4s linear infinite; background-size: 300% 300%; }
         .star-inner { background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%); padding: 40px 25px; border-radius: 18px; text-align: center; }
         .ad-badge { display: inline-block; background: var(--gold); color: black; font-size: 0.6rem; font-weight: 900; padding: 3px 12px; border-radius: 50px; text-transform: uppercase; margin-bottom: 15px; }
         .ad-title { color: white; font-size: 1.8rem; font-weight: 800; margin: 0; }
@@ -127,21 +75,21 @@
         .detail-item span { color: var(--gold); font-weight: bold; }
         .price-highlight .amount { color: #fff; font-size: 3rem; font-weight: 900; }
 
-        /* TABLES */
+        /* PRICING TABLE */
         .pricing-section { padding: 20px; max-width: 850px; margin: 0 auto; }
         .table-container { overflow-x: auto; background: rgba(255,255,255,0.01); border: 1px solid var(--thin-border); border-radius: 8px; }
         table { width: 100%; border-collapse: collapse; min-width: 450px; }
-        th { text-align: left; padding: 15px 20px; font-size: 0.6rem; color: var(--gold); border-bottom: 1px solid var(--thin-border); }
+        th { text-align: left; padding: 15px 20px; font-size: 0.6rem; color: var(--gold); text-transform: uppercase; border-bottom: 1px solid var(--thin-border); }
         td { padding: 12px 20px; font-size: 0.8rem; border-bottom: 1px solid #111; }
         .price-col { font-weight: 700; color: white; text-align: right; }
 
-        /* FORM */
+        /* BOOKING FORM */
         .booking-section { padding: 40px 20px; max-width: 600px; margin: 40px auto; background: #0a0a0a; border: 1px solid var(--thin-border); border-radius: 12px; }
-        .booking-form { display: grid; gap: 15px; }
-        .form-group { display: flex; flex-direction: column; gap: 5px; text-align: left; }
-        .form-group label { font-size: 0.65rem; color: var(--gold); text-transform: uppercase; }
+        .booking-form { display: grid; gap: 15px; text-align: left; }
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .form-group label { font-size: 0.65rem; text-transform: uppercase; color: var(--gold); }
         .booking-form input, .booking-form select, .booking-form textarea { background: #151515; border: 1px solid #333; color: white; padding: 12px; border-radius: 6px; }
-        .btn-submit { background: var(--gold-gradient); color: black; border: none; padding: 15px; font-weight: 800; border-radius: 4px; cursor: pointer; text-transform: uppercase; }
+        .btn-submit { background: var(--gold-gradient); color: black; border: none; padding: 15px; font-weight: 800; text-transform: uppercase; border-radius: 4px; cursor: pointer; }
 
         /* MAP */
         .map-section { padding: 20px; max-width: 850px; margin: 0 auto; }
@@ -150,8 +98,9 @@
 
         /* STICKY BAR */
         .sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(5, 5, 5, 0.95); border-top: 1px solid var(--gold); display: flex; padding: 12px 0; z-index: 9999; }
-        .sticky-btn { flex: 1; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 800; color: var(--gold); }
+        .sticky-btn { flex: 1; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .sticky-msg { color: var(--whatsapp); border-right: 1px solid #222; }
+        .sticky-call { color: var(--gold); }
 
         @keyframes border-dance { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         @media (max-width: 600px) { .ad-details-grid { grid-template-columns: 1fr; } }
@@ -164,9 +113,9 @@
 </header>
 
 <section class="hero">
-    <h2>PREMIUM MOBILE CAR DETAILING</h2>
+    <h2>PREMIUM MOBILE CAR DETAILING CALICUT</h2>
     <h1 class="brand-title gold-glow-text">Xpert911 | Auto Care</h1>
-    <p class="tagline">Expert doorstep car care. Kozhikode.</p>
+    <p class="tagline">Expert doorstep car care. Anytime. Anywhere in Kozhikode.</p>
     <a href="https://www.instagram.com/xpert911.co/" target="_blank" class="social-link">Instagram: @xpert911.co</a>
 </section>
 
@@ -186,14 +135,17 @@
     <div class="star-inner">
         <div class="ad-badge">Premium Choice</div>
         <h2 class="ad-title">Elite Ceramic Infused Wash</h2>
-        <span class="ad-subtitle">Showroom Reflection at Home</span>
+        <span class="ad-subtitle">The Ultimate Showroom Reflection</span>
         <div class="ad-details-grid">
             <div class="detail-item"><span>✓</span> Hydrophobic Shield</div>
             <div class="detail-item"><span>✓</span> UV Ray Protection</div>
             <div class="detail-item"><span>✓</span> Mirror-Finish Gloss</div>
             <div class="detail-item"><span>✓</span> Dirt Repellent Tech</div>
         </div>
-        <div class="price-highlight"><span class="amount">₹599</span></div>
+        <div class="price-highlight">
+            <span style="display:block; color:var(--gold); font-size:0.7rem; text-transform:uppercase;">Starting From</span>
+            <span class="amount">₹599</span>
+        </div>
     </div>
 </div>
 
@@ -201,11 +153,12 @@
     <div class="table-container">
         <table>
             <thead>
-                <tr><th>Vehicle</th><th style="text-align:right">Basic</th><th style="text-align:right">Premium</th><th style="text-align:right">Detailing</th></tr>
+                <tr><th>Vehicle Type</th><th style="text-align:right">Basic</th><th style="text-align:right">Premium</th><th style="text-align:right">Detailing</th></tr>
             </thead>
             <tbody>
                 <tr><td>Hatchback</td><td class="price-col">₹249</td><td class="price-col">₹399</td><td class="price-col">₹899</td></tr>
                 <tr><td>Sedan</td><td class="price-col">₹299</td><td class="price-col">₹449</td><td class="price-col">₹999</td></tr>
+                <tr><td>Compact SUV</td><td class="price-col">₹349</td><td class="price-col">₹499</td><td class="price-col">₹1099</td></tr>
                 <tr><td>SUV</td><td class="price-col">₹399</td><td class="price-col">₹599</td><td class="price-col">₹1299</td></tr>
                 <tr><td>MPV</td><td class="price-col">₹449</td><td class="price-col">₹649</td><td class="price-col">₹1399</td></tr>
             </tbody>
@@ -215,8 +168,8 @@
 
 <section class="booking-section" id="booking">
     <form class="booking-form" id="serviceForm">
-        <div class="form-group"><label>Name</label><input type="text" id="custName" required></div>
-        <div class="form-group"><label>Vehicle</label><input type="text" id="custVehicle" required></div>
+        <div class="form-group"><label>Customer Name</label><input type="text" id="custName" required></div>
+        <div class="form-group"><label>Vehicle Details</label><input type="text" id="custVehicle" placeholder="e.g. BMW 3 Series" required></div>
         <div class="form-group">
             <label>Service</label>
             <select id="custService">
@@ -225,24 +178,28 @@
                 <option value="Complete Detailing">Complete Detailing</option>
             </select>
         </div>
-        <div class="form-group"><label>Location</label><textarea id="custLoc" required></textarea></div>
+        <div style="display: flex; gap: 10px;">
+            <div class="form-group" style="flex: 1;"><label>Date</label><input type="date" id="custDate" required></div>
+            <div class="form-group" style="flex: 1;"><label>Time</label><input type="time" id="custTime" required></div>
+        </div>
+        <div class="form-group"><label>Location</label><textarea id="custLoc" rows="2" placeholder="Street Name / House No" required></textarea></div>
         <button type="submit" class="btn-submit">Book via WhatsApp</button>
     </form>
 </section>
 
 <section class="map-section">
     <div class="map-wrapper">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125218.42312959846!2d75.72023539726563!3d11.258753099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563a4747%3A0x3215571624c9003c!2sKozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125218.42302302388!2d75.7804!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563a4747%3A0x321557147a375531!2sKozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1625484848484!5m2!1sen!2sin"></iframe>
     </div>
 </section>
 
 <div class="sticky-bar">
     <a href="https://wa.me/917356204215" class="sticky-btn sticky-msg">WhatsApp Now</a>
-    <a href="tel:+917356204215" class="sticky-btn">Call Now</a>
+    <a href="tel:+917356204215" class="sticky-btn sticky-call">Call Support</a>
 </div>
 
 <script>
-    // EXACT SLIDER LOGIC
+    // EXACT SLIDER LOGIC FROM REFERENCE
     function moveSlider() {
         const slider = document.getElementById('comparisonSlider');
         const beforeImg = document.getElementById('beforeImg');
@@ -254,10 +211,10 @@
         sliderBtn.style.left = `${val}%`;
     }
 
-    // BOOKING FORM
+    // FORM LOGIC
     document.getElementById('serviceForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const msg = `*Xpert911 Booking Request*%0A*Name:* ${document.getElementById('custName').value}%0A*Vehicle:* ${document.getElementById('custVehicle').value}%0A*Service:* ${document.getElementById('custService').value}%0A*Location:* ${document.getElementById('custLoc').value}`;
+        const msg = `*Xpert911 Booking Request*%0A*Name:* ${document.getElementById('custName').value}%0A*Vehicle:* ${document.getElementById('custVehicle').value}%0A*Service:* ${document.getElementById('custService').value}%0A*Date:* ${document.getElementById('custDate').value}%0A*Time:* ${document.getElementById('custTime').value}%0A*Location:* ${document.getElementById('custLoc').value}`;
         window.open(`https://wa.me/917356204215?text=${msg}`, '_blank');
     });
 </script>
