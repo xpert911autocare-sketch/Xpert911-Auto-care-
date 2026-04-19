@@ -36,7 +36,7 @@
       },
       "url": "https://xpert911.co",
       "telephone": "+917356204215",
-      "priceRange": "₹249 - ₹1299",
+      "priceRange": "₹249 - ₹1399",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -172,6 +172,9 @@
         th { text-align: left; padding: 15px 20px; font-size: 0.6rem; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid var(--thin-border); }
         td { padding: 12px 20px; font-size: 0.8rem; border-bottom: 1px solid #111; }
         .price-col { font-weight: 700; color: white; text-align: right; }
+        
+        /* New styling for Table Title */
+        .table-title { text-align: center; padding: 15px; font-size: 0.85rem; letter-spacing: 5px; color: var(--gold); border-bottom: 1px solid var(--thin-border); text-transform: uppercase; font-weight: 400; }
 
         .booking-section { padding: 40px 20px; max-width: 600px; margin: 40px auto; background: #0a0a0a; border: 1px solid var(--thin-border); border-radius: 12px; }
         .booking-form { display: grid; gap: 15px; text-align: left; }
@@ -247,16 +250,22 @@
 
 <section class="pricing-section">
     <div class="table-container">
-        <h3 style="padding: 15px; font-size: 0.8rem; color: var(--gold);">SERVICE PRICE LIST (CALICUT)</h3>
+        <div class="table-title">Service Description</div>
         <table>
             <thead>
-                <tr><th>Vehicle Category</th><th style="text-align:right">Basic</th><th style="text-align:right">Premium</th><th style="text-align:right">Full Detail</th></tr>
+                <tr>
+                    <th>Vehicle Type</th>
+                    <th style="text-align:right">Basic Wash</th>
+                    <th style="text-align:right">Premium Wash</th>
+                    <th style="text-align:right">Complete Detailing</th>
+                </tr>
             </thead>
             <tbody>
                 <tr><td>Hatchback</td><td class="price-col">₹249</td><td class="price-col">₹399</td><td class="price-col">₹899</td></tr>
                 <tr><td>Sedan</td><td class="price-col">₹299</td><td class="price-col">₹449</td><td class="price-col">₹999</td></tr>
                 <tr><td>Compact SUV</td><td class="price-col">₹349</td><td class="price-col">₹499</td><td class="price-col">₹1099</td></tr>
-                <tr><td>Full SUV / Luxury</td><td class="price-col">₹399</td><td class="price-col">₹599</td><td class="price-col">₹1299</td></tr>
+                <tr><td>SUV</td><td class="price-col">₹399</td><td class="price-col">₹599</td><td class="price-col">₹1299</td></tr>
+                <tr><td>MPV</td><td class="price-col">₹449</td><td class="price-col">₹649</td><td class="price-col">₹1399</td></tr>
             </tbody>
         </table>
     </div>
