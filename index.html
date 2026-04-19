@@ -105,12 +105,7 @@
             overflow: hidden;
         }
 
-        .pillar-card:hover { 
-            border-color: var(--gold); 
-            background: rgba(212, 175, 55, 0.08);
-            transform: translateY(-8px);
-        }
-
+        .pillar-card:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.08); transform: translateY(-8px); }
         .pillar-icon { color: var(--gold); font-size: 1.8rem; margin-bottom: 15px; display: block; }
         .pillar-card h4 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin: 10px 0; color: white; }
         .pillar-card p { font-size: 0.65rem; color: #888; margin: 0; }
@@ -142,7 +137,7 @@
         td { padding: 12px 20px; font-size: 0.8rem; border-bottom: 1px solid #111; }
         .price-col { font-weight: 700; color: white; text-align: right; }
 
-        /* BOOKING FORM STYLES */
+        /* BOOKING FORM */
         .booking-section { padding: 40px 20px; max-width: 600px; margin: 40px auto; background: #0a0a0a; border: 1px solid var(--thin-border); border-radius: 12px; }
         .booking-form { display: grid; gap: 15px; text-align: left; }
         .form-group { display: flex; flex-direction: column; gap: 5px; }
@@ -285,6 +280,9 @@
 
 <section class="booking-section" id="booking">
     <div class="section-header" style="text-align: center; margin-bottom: 25px;">
+        <div style="display: inline-block; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); padding: 4px 12px; border-radius: 20px; margin-bottom: 10px;">
+            <span style="font-size: 0.6rem; color: var(--gold); font-weight: 800; letter-spacing: 1px;">SERVICE: 7 AM — 11 PM | 24/7 BOOKING</span>
+        </div>
         <h3 class="gold-glow-text" style="font-size: 1.2rem; letter-spacing: 3px;">Book Appointment</h3>
         <p style="font-size: 0.7rem; color: #888;">Enter your details to schedule your service.</p>
     </div>
@@ -307,10 +305,18 @@
                 <option value="Complete Detailing">Complete Detailing</option>
             </select>
         </div>
-        <div class="form-group">
-            <label>Preferred Date</label>
-            <input type="date" id="custDate" required>
+
+        <div style="display: flex; gap: 10px;">
+            <div class="form-group" style="flex: 1;">
+                <label>Preferred Date</label>
+                <input type="date" id="custDate" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label>Preferred Time</label>
+                <input type="time" id="custTime" min="07:00" max="23:00" required>
+            </div>
         </div>
+
         <div class="form-group">
             <label>Location</label>
             <textarea id="custLoc" rows="2" placeholder="Address in Calicut" required></textarea>
@@ -321,8 +327,73 @@
 
 <section class="map-section">
     <div class="map-wrapper">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125218.41163456385!2d75.73351185449764!3d11.2587531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563d4747%3A0x321557147a375a2!2sKozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1714400000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125218.42838575796!2d75.72661555!3d11.25875305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563d4747%3A0x32155714767566d8!2sKozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
     </div>
 </section>
 
 <div class="cta-container">
+    <a href="tel:+917356204215" class="btn btn-gold">Call Assistant</a>
+    <button id="mainShareBtn" class="btn btn-share">Share Website</button>
+</div>
+
+<div class="sticky-bar">
+    <a href="https://wa.me/917356204215" class="sticky-btn sticky-msg">Message Us</a>
+    <a href="#" id="stickyShareBtn" class="sticky-btn sticky-share">Share</a>
+</div>
+
+<footer>
+    <p>© 2026 XPERT911 AUTO CARE | CALICUT</p>
+</footer>
+
+<script>
+    // FORM TO WHATSAPP LOGIC
+    document.getElementById('serviceForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('custName').value;
+        const vehicle = document.getElementById('custVehicle').value;
+        const service = document.getElementById('custService').value;
+        const date = document.getElementById('custDate').value;
+        const time = document.getElementById('custTime').value;
+        const loc = document.getElementById('custLoc').value;
+
+        // Hour Validation
+        const hour = parseInt(time.split(':'));
+        if (hour < 7 || hour >= 23) {
+            alert("Service hours are 7:00 AM to 11:00 PM. Please select a valid time.");
+            return;
+        }
+
+        const message = `*Xpert911 Booking Request*%0A` +
+                        `--------------------------%0A` +
+                        `*Name:* ${name}%0A` +
+                        `*Vehicle:* ${vehicle}%0A` +
+                        `*Service:* ${service}%0A` +
+                        `*Date:* ${date}%0A` +
+                        `*Time:* ${time}%0A` +
+                        `*Location:* ${loc}%0A` +
+                        `--------------------------%0A` +
+                        `Please confirm my slot.`;
+
+        window.open(`https://wa.me/917356204215?text=${message}`, '_blank');
+    });
+
+    // SHARE LOGIC
+    const shareData = {
+        title: 'Xpert911 Auto Care',
+        text: 'Premium Mobile Detailing in Calicut. Expert car care at your doorstep!',
+        url: window.location.href
+    };
+
+    const handleShare = async () => {
+        try {
+            if (navigator.share) {
+                await navigator.share(shareData);
+            } else {
+                await navigator.clipboard.writeText(window.location.href);
+                alert('Link copied to clipboard!');
+            }
+        } catch (err) { console.log(err); }
+    };
+
+    document.getElementById('mainShareBtn').addEventListen
