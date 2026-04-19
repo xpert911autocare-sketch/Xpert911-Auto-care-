@@ -53,7 +53,7 @@
             color: var(--soft-white); 
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            padding-bottom: 80px; 
+            padding-bottom: 100px; 
         }
 
         /* HEADER & NAV */
@@ -76,12 +76,7 @@
             align-items: center;
         }
 
-        .header-logo {
-            height: 35px;
-            width: auto;
-            display: block;
-        }
-
+        .header-logo { height: 35px; width: auto; display: block; }
         .main-nav { display: flex; gap: 15px; }
         .nav-link {
             color: var(--soft-white);
@@ -93,7 +88,7 @@
         }
 
         /* HERO */
-        .hero { padding: 40px 20px 30px 20px; text-align: center; }
+        .hero { padding: 40px 20px 10px 20px; text-align: center; }
         .hero h2 { font-size: 0.75rem; letter-spacing: 12px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; font-weight: 300; }
         
         .gold-glow-text {
@@ -107,31 +102,29 @@
         }
 
         @keyframes gold-shine { to { background-position: 200% center; } }
-
         .brand-title { font-size: 1.8rem; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
-        .tagline { font-size: 0.7rem; color: #888; font-style: italic; margin-top: 10px; letter-spacing: 1px; }
 
-        /* QUALITY PILLARS */
+        /* THE XPERT911 STANDARD SECTION */
         .standard-section { padding: 40px 20px; max-width: 850px; margin: 0 auto; text-align: center; }
-        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 30px; }
+        .promise-tag { font-size: 0.6rem; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; }
+        .standard-title { font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; margin-top: 0; }
+        .standard-divider { width: 50px; height: 1px; background: var(--gold); margin: 20px auto; position: relative; }
+        .standard-divider::after { content: '◆'; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--gold); }
+
+        .pillar-stack { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
         
         .pillar-card { 
             border: 1px solid var(--thin-border); 
-            padding: 25px 15px; 
+            padding: 30px 20px; 
             border-radius: 4px; 
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            background: rgba(255,255,255,0.02); 
+            background: #0d0d0d;
+            transition: 0.3s;
         }
 
-        .pillar-card:hover { 
-            border-color: var(--gold); 
-            background: rgba(212, 175, 55, 0.08);
-            transform: translateY(-8px);
-        }
-
-        .pillar-icon { color: var(--gold); font-size: 1.8rem; margin-bottom: 15px; display: block; }
-        .pillar-card h4 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin: 10px 0; color: white; }
-        .pillar-card p { font-size: 0.65rem; color: #888; margin: 0; }
+        .pillar-card:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.05); }
+        .pillar-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .pillar-card h4 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin: 10px 0; color: white; font-weight: 800; }
+        .pillar-card p { font-size: 0.65rem; color: #777; margin: 0; letter-spacing: 0.5px; }
 
         /* GALLERY */
         .gallery-container { 
@@ -143,8 +136,7 @@
             padding: 0 20px; 
         }
         .gallery-item { position: relative; border: 1px solid var(--thin-border); overflow: hidden; border-radius: 4px; aspect-ratio: 4 / 3; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
-        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
         .gallery-label { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.85); color: var(--gold); font-size: 0.6rem; padding: 5px 12px; text-transform: uppercase; border-left: 2px solid var(--gold); }
 
         /* PRICING */
@@ -156,51 +148,59 @@
         .price-col { font-weight: 700; color: white; text-align: right; }
         .highlight-col { background: rgba(212, 175, 55, 0.05); }
 
-        /* BOOKING FORM (BELOW PRICING) */
+        /* BOOKING FORM */
         .booking-section {
             background-color: #0d0d0d;
             max-width: 850px;
             margin: 20px auto 40px auto;
-            padding: 20px;
+            padding: 30px 20px;
             box-sizing: border-box;
             border: 1px solid var(--thin-border);
-            border-radius: 8px;
+            border-radius: 4px;
         }
-        .booking-header { text-align: center; margin-bottom: 25px; }
-        .book-title { font-size: 1.6rem; text-transform: uppercase; font-weight: 800; margin: 0; }
-        .book-subtitle { font-size: 0.7rem; color: #888; margin-top: 5px; }
-        .booking-form { display: flex; flex-direction: column; gap: 15px; }
+        .booking-header { text-align: center; margin-bottom: 30px; }
+        .book-title { font-size: 1.6rem; text-transform: uppercase; font-weight: 800; margin: 0; color: white; letter-spacing: 2px; }
+        .book-subtitle { font-size: 0.7rem; color: #555; margin-top: 8px; }
+        .booking-form { display: flex; flex-direction: column; gap: 20px; }
         .input-group { display: flex; flex-direction: column; }
-        .input-group label { font-size: 0.6rem; color: var(--gold); text-transform: uppercase; font-weight: 700; margin-bottom: 5px; letter-spacing: 1px; }
+        .input-group label { font-size: 0.6rem; color: var(--gold); text-transform: uppercase; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
         .input-group input, .input-group select, .input-group textarea {
-            background-color: #0d0d0d; border: 1px solid var(--thin-border); border-radius: 4px; color: var(--soft-white); padding: 12px; font-size: 0.8rem;
+            background-color: #0d0d0d; border: 1px solid #222; border-radius: 4px; color: var(--soft-white); padding: 14px; font-size: 0.85rem; outline: none;
         }
+        .input-group input:focus { border-color: var(--gold); }
         .btn-gold-form {
-            border: 1px solid var(--gold); background: transparent; color: var(--gold); padding: 16px; text-transform: uppercase; font-weight: bold; cursor: pointer; border-radius: 4px; transition: 0.3s;
+            border: 1px solid var(--gold); background: transparent; color: var(--gold); padding: 16px; text-transform: uppercase; font-weight: 800; cursor: pointer; border-radius: 4px; transition: 0.3s; letter-spacing: 1px; margin-top: 10px;
         }
         .btn-gold-form:hover { background: var(--gold-gradient); color: black; }
 
         /* BOTTOM CTA BAR */
-        .dual-cta-container {
-            max-width: 850px;
-            margin: 20px auto;
-            padding: 0 20px;
+        .bottom-cta-fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(5,5,5,0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+            box-sizing: border-box;
+            border-top: 1px solid #222;
+            z-index: 2000;
         }
         .cta-btn {
-            display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; text-decoration: none; border-radius: 4px; font-size: 0.85rem; font-weight: 700; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 8px; padding: 15px; text-decoration: none; border-radius: 8px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; transition: 0.3s;
         }
-        .btn-dark-outline { background-color: #0d0d0d; border: 2px solid #222; color: var(--soft-white); }
-        .btn-green { background-color: var(--whatsapp); border: none; color: black; }
-        .wa-icon-small { width: 18px; height: 18px; }
+        .btn-call { background-color: #111; border: 1px solid #333; color: white; }
+        .btn-whatsapp { background-color: var(--whatsapp); border: none; color: black; }
+        .wa-icon { width: 16px; height: 16px; filter: brightness(0); }
 
-        footer { text-align: center; color: #444; font-size: 0.6rem; padding-bottom: 30px; letter-spacing: 2px; }
+        footer { text-align: center; color: #444; font-size: 0.6rem; padding: 20px 0 120px 0; letter-spacing: 2px; }
 
         @media (max-width: 600px) {
             .header-content { flex-direction: column; gap: 10px; }
-            .pillar-grid { grid-template-columns: 1fr; }
+            .standard-title { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -212,34 +212,40 @@
         <nav class="main-nav">
             <a href="#about" class="nav-link">About</a>
             <a href="#pricing" class="nav-link">Pricing</a>
-            <a href="#gallery" class="nav-link">Gallery</a>
-            <a href="#book" class="nav-link">Book Now</a>
+            <a href="#book" class="nav-link">Book</a>
         </nav>
     </div>
 </header>
 
 <section class="hero reveal">
-    <h2>DOORSTEP CAR WASH CALICUT</h2>
     <h1 class="brand-title gold-glow-text">Xpert911 Autocare</h1>
-    <p class="tagline">Premium Car Cleaning Service at Your Home</p>
 </section>
 
 <section id="about" class="standard-section reveal">
-    <div class="pillar-grid">
+    <p class="promise-tag">Our Promise</p>
+    <h2 class="standard-title">The <span class="gold-glow-text">Xpert911</span> Standard</h2>
+    <div class="standard-divider"></div>
+
+    <div class="pillar-stack">
         <div class="pillar-card">
-            <span class="pillar-icon">✨</span>
-            <h4>PH-Neutral</h4>
-            <p>Safe for premium paintwork.</p>
+            <span class="pillar-icon">🚗</span>
+            <h4>Mobile Service</h4>
+            <p>We come to your home, office or anywhere convenient</p>
         </div>
         <div class="pillar-card">
-            <span class="pillar-icon">🧼</span>
-            <h4>Steam Clean</h4>
-            <p>Eco-friendly sterilization.</p>
+            <span class="pillar-icon">⚡</span>
+            <h4>Fast & Efficient</h4>
+            <p>Professional results in minimal time, no waiting at a shop</p>
         </div>
         <div class="pillar-card">
-            <span class="pillar-icon">💎</span>
-            <h4>No-Swirl Policy</h4>
-            <p>Premium microfiber only.</p>
+            <span class="pillar-icon">🏆</span>
+            <h4>Premium Products</h4>
+            <p>Only top-grade detailing products on every vehicle</p>
+        </div>
+        <div class="pillar-card">
+            <span class="pillar-icon">📱</span>
+            <h4>Easy Booking</h4>
+            <p>WhatsApp or call — booked in under 2 minutes</p>
         </div>
     </div>
 </section>
@@ -250,9 +256,7 @@
 </section>
 
 <section id="pricing" class="pricing-section reveal">
-    <div class="section-header">
-        <h3 class="gold-glow-text">Service Pricing</h3>
-    </div>
+    <div class="section-header"><h3 class="gold-glow-text">Service Pricing</h3></div>
     <div class="table-container">
         <table>
             <thead>
@@ -273,7 +277,7 @@
 
 <section id="book" class="booking-section reveal">
     <div class="booking-header">
-        <h2 class="book-title gold-glow-text">Book An Appointment</h2>
+        <h2 class="book-title">Book An Appointment</h2>
         <p class="book-subtitle">We'll confirm via WhatsApp within 30 minutes</p>
     </div>
     <form class="booking-form">
@@ -300,16 +304,16 @@
         </div>
         <div class="input-group">
             <label>Location</label>
-            <textarea id="location" placeholder="Your address in Calicut..." rows="3" required></textarea>
+            <textarea id="location" placeholder="Your address or landmark in Calicut..." rows="3" required></textarea>
         </div>
         <button type="submit" class="btn-gold-form">Send Booking Via WhatsApp →</button>
     </form>
 </section>
 
-<div class="dual-cta-container reveal">
-    <a href="tel:+917356204215" class="cta-btn btn-dark-outline">📞 Call Now</a>
-    <a href="#book" class="cta-btn btn-green">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon-small"> WhatsApp
+<div class="bottom-cta-fixed">
+    <a href="tel:+917356204215" class="cta-btn btn-call">📞 Call Now</a>
+    <a href="https://wa.me/917356204215" class="cta-btn btn-whatsapp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon"> WhatsApp
     </a>
 </div>
 
@@ -318,19 +322,13 @@
 <script>
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
     document.querySelector('.booking-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const vehicle = document.getElementById('vehicle').value;
-        const service = document.getElementById('service').value;
-        const loc = document.getElementById('location').value;
-        
-        const message = `Booking Request:%0A- Name: ${name}%0A- Phone: ${phone}%0A- Vehicle: ${vehicle}%0A- Service: ${service}%0A- Location: ${loc}`;
-        window.open(`https://wa.me/917356204215?text=${message}`, '_blank');
+        const msg = `New Booking Request:%0A- Name: ${document.getElementById('name').value}%0A- Phone: ${document.getElementById('phone').value}%0A- Vehicle: ${document.getElementById('vehicle').value}%0A- Service: ${document.getElementById('service').value}%0A- Location: ${document.getElementById('location').value}`;
+        window.open(`https://wa.me/917356204215?text=${msg}`, '_blank');
     });
 </script>
 
