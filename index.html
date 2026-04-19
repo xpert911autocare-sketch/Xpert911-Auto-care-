@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xpert911 Autocare | 24/7 Doorstep Car Wash Calicut</title>
+    <title>Xpert911 Autocare | Premium Mobile Detailing Calicut</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,8 +15,16 @@
             --whatsapp: #25D366;
         }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* --- ANIMATIONS --- */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: all 0.8s ease-out; 
+        }
+        .reveal.active { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
 
         html { border: 2px solid var(--gold); min-height: 100%; box-sizing: border-box; background-color: var(--deep-black); scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--deep-black); color: var(--soft-white); padding-bottom: 120px; line-height: 1.6; }
@@ -29,7 +37,7 @@
         .nav-link { color: #888; text-decoration: none; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         .nav-link.active-link { color: var(--gold); border-bottom: 1px solid var(--gold); }
 
-        /* HERO & TITLES */
+        /* HEADINGS */
         .gold-glow { 
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); 
             background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
@@ -39,37 +47,33 @@
         .divider { width: 40px; height: 1px; background: var(--gold); margin: 15px auto; position: relative; }
         .divider::after { content: '◆'; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--gold); }
 
-        /* THE XPERT911 STANDARD - 6 PILLARS */
+        /* THE XPERT911 STANDARD */
         .standard-section { padding: 40px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
         .pillar-stack { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 30px; }
         @media (min-width: 600px) { .pillar-stack { grid-template-columns: 1fr 1fr; } }
-        .pillar-card { border: 1px solid #1a1a1a; padding: 25px 20px; border-radius: 4px; background: var(--card-bg); text-align: center; }
+        .pillar-card { border: 1px solid #1a1a1a; padding: 25px 20px; border-radius: 4px; background: var(--card-bg); }
+        .pillar-icon { font-size: 20px; margin-bottom: 10px; display: block; }
         .pillar-card h4 { font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; margin: 8px 0; color: white; font-weight: 800; }
         .pillar-card p { font-size: 0.6rem; color: #666; margin: 0; }
 
-        /* CERAMIC UPGRADE BOX */
+        /* CERAMIC UPGRADE */
         .upgrade-section { padding: 20px; max-width: 600px; margin: 0 auto; }
         .upgrade-box { border: 1px solid var(--gold); border-radius: 20px; padding: 30px 20px; text-align: center; background: #080808; position: relative; }
         .timer-badge { background: #1a1a1a; padding: 4px 10px; border-radius: 4px; font-size: 0.55rem; color: #fff; position: absolute; top: 15px; right: 15px; }
         .upgrade-title { font-size: 1.4rem; font-weight: 800; color: white; margin: 10px 0; }
         .price-hero { font-size: 2.2rem; font-weight: 800; color: white; margin: 15px 0; display: block; }
-        .feat-grid { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-        .feat-pill { border: 1px solid #222; padding: 8px 15px; border-radius: 8px; font-size: 0.55rem; text-transform: uppercase; color: #777; }
 
-        /* PRICING TABLES */
+        /* TABLES */
         .pricing-section { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
         .section-label { text-align: center; font-size: 0.6rem; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; font-weight: 800; }
         .section-title { text-align: center; font-size: 1.6rem; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; }
-
         .table-card { border: 1px solid #1a1a1a; border-radius: 8px; overflow: hidden; background: #080808; margin-bottom: 40px; }
-        table { width: 100%; border-collapse: collapse; min-width: 500px; }
         .table-scroll { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
         th { text-align: left; padding: 15px 20px; font-size: 0.6rem; color: var(--gold); text-transform: uppercase; border-bottom: 1px solid #1a1a1a; }
         td { padding: 15px 20px; font-size: 0.8rem; border-bottom: 1px solid #111; color: #ccc; }
         .cat-row td { background: #000; color: var(--gold); font-size: 0.55rem; letter-spacing: 2px; font-weight: 800; text-transform: uppercase; }
         .price-cell { font-weight: 800; color: white; text-align: right; }
-        
-        /* VEHICLE GRID SPECIFICS */
         .premium-highlight { background: rgba(212, 175, 55, 0.05); }
         .bs-container { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
         .bs-badge { background: var(--gold-gradient); color: black; font-size: 0.45rem; font-weight: 900; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; }
@@ -81,7 +85,8 @@
         .input-group input, .input-group select, .input-group textarea {
             background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 4px; color: white; padding: 15px; width: 100%; box-sizing: border-box; font-size: 0.85rem;
         }
-        .btn-wa { border: 1px solid var(--gold); background: transparent; color: var(--gold); padding: 16px; text-transform: uppercase; font-weight: 800; cursor: pointer; border-radius: 4px; width: 100%; transition: 0.3s; }
+        .btn-wa { border: 1px solid var(--gold); background: transparent; color: var(--gold); padding: 18px; text-transform: uppercase; font-weight: 800; cursor: pointer; border-radius: 4px; width: 100%; transition: 0.3s; }
+        .btn-wa:hover { background: var(--gold); color: black; }
 
         /* BOTTOM BAR */
         .bottom-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #050505; padding: 12px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; box-sizing: border-box; border-top: 1px solid #111; z-index: 2000; }
@@ -94,7 +99,7 @@
 
 <header class="main-header">
     <div class="header-content">
-        <img src="logo.png" class="header-logo">
+        <img src="logo.png" alt="Xpert911" class="header-logo">
         <nav class="main-nav">
             <a href="#about" class="nav-link">About</a>
             <a href="#about" class="nav-link">Services</a>
@@ -105,17 +110,17 @@
     </div>
 </header>
 
-<section class="standard-section reveal">
+<section id="about" class="standard-section reveal">
     <p class="section-label">Our Promise</p>
     <h2 class="section-title">The <span class="gold-glow">Xpert911</span> Standard</h2>
     <div class="divider"></div>
     <div class="pillar-stack">
-        <div class="pillar-card"><h4>Mobile Service</h4><p>We come to your home, office or anywhere convenient</p></div>
-        <div class="pillar-card"><h4>Fast & Efficient</h4><p>Professional results in minimal time, no waiting at a shop</p></div>
-        <div class="pillar-card"><h4>Premium Products</h4><p>Only top-grade detailing products on every vehicle</p></div>
-        <div class="pillar-card"><h4>Expert Trained</h4><p>Certified technicians with years of hands-on experience</p></div>
-        <div class="pillar-card"><h4>Detail Obsessed</h4><p>Every inch inspected and perfected</p></div>
-        <div class="pillar-card"><h4>Easy Booking</h4><p>WhatsApp or call — booked in under 2 minutes</p></div>
+        <div class="pillar-card"><span class="pillar-icon">🚗</span><h4>Mobile Service</h4><p>We come to your home, office or anywhere convenient</p></div>
+        <div class="pillar-card"><span class="pillar-icon">⚡</span><h4>Fast & Efficient</h4><p>Professional results in minimal time, no waiting at a shop</p></div>
+        <div class="pillar-card"><span class="pillar-icon">🏆</span><h4>Premium Products</h4><p>Only top-grade detailing products on every vehicle</p></div>
+        <div class="pillar-card"><span class="pillar-icon">🛡️</span><h4>Expert Trained</h4><p>Certified technicians with years of hands-on experience</p></div>
+        <div class="pillar-card"><span class="pillar-icon">💎</span><h4>Detail Obsessed</h4><p>Every inch inspected and perfected</p></div>
+        <div class="pillar-card"><span class="pillar-icon">📱</span><h4>Easy Booking</h4><p>WhatsApp or call — booked in under 2 minutes</p></div>
     </div>
 </section>
 
@@ -123,12 +128,12 @@
     <div class="upgrade-box">
         <div class="timer-badge">⏱ 45 MINS</div>
         <h2 class="upgrade-title">Ceramic-Effect Premium Wash</h2>
-        <p style="font-size: 0.75rem; color: #888;">Advanced formula for a deep gloss finish and ceramic-like shine.</p>
+        <p style="font-size: 0.75rem; color: #888;">Our advanced premium shampoo delivers a <span style="color:var(--gold)">deep gloss finish</span> and a <span style="color:var(--gold)">ceramic-like shine</span>.</p>
         <span class="price-hero">₹599</span>
-        <div class="feat-grid">
-            <div class="feat-pill">✨ Gloss</div>
-            <div class="feat-pill">🛡 Shield</div>
-            <div class="feat-pill">💧 Slick</div>
+        <div style="display:flex; justify-content:center; gap:10px;">
+            <div style="border:1px solid #222; padding:8px 15px; border-radius:8px; font-size:0.55rem; color:#777;">✨ GLOSS</div>
+            <div style="border:1px solid #222; padding:8px 15px; border-radius:8px; font-size:0.55rem; color:#777;">🛡 SHIELD</div>
+            <div style="border:1px solid #222; padding:8px 15px; border-radius:8px; font-size:0.55rem; color:#777;">💧 SLICK</div>
         </div>
     </div>
 </section>
@@ -158,8 +163,8 @@
         </table>
     </div>
 
-    <p class="section-label">Service Description</p>
-    <h2 class="section-title">Vehicle-Specific Rates</h2>
+    <p class="section-label">Specific Rates</p>
+    <h2 class="section-title">By Vehicle Body Type</h2>
     <div class="table-card table-scroll">
         <table>
             <thead>
@@ -198,8 +203,8 @@
         <div class="input-group"><label>Service</label>
             <select id="service" required>
                 <option value="" disabled selected>Select a service...</option>
-                <option>Premium Full Detail</option>
                 <option>Basic Exterior Wash</option>
+                <option>Premium Full Detail</option>
                 <option>Complete Detailing</option>
             </select>
         </div>
@@ -223,11 +228,18 @@
 </div>
 
 <script>
+    // --- RESTORED ANIMATION SCRIPT ---
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        entries.forEach(entry => { 
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active'); 
+            }
+        });
     }, { threshold: 0.1 });
+
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
+    // --- FORM HANDLER ---
     document.getElementById('waForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const msg = `Booking Request:%0A- Name: ${document.getElementById('name').value}%0A- Vehicle: ${document.getElementById('vehicle').value}%0A- Service: ${document.getElementById('service').value}%0A- Date/Time: ${document.getElementById('date').value} at ${document.getElementById('time').value}%0A- Location: ${document.getElementById('location').value}`;
