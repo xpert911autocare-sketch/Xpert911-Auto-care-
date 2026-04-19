@@ -36,7 +36,7 @@
       },
       "url": "https://xpert911.co",
       "telephone": "+917356204215",
-      "priceRange": "₹249 - ₹1399",
+      "priceRange": "₹249 - ₹1299",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -324,14 +324,13 @@
         <h3 style="padding: 15px; font-size: 0.8rem; color: var(--gold);">SERVICE PRICE LIST (CALICUT)</h3>
         <table>
             <thead>
-                <tr><th>VEHICLE TYPE</th><th style="text-align:right">BASIC WASH</th><th style="text-align:right">PREMIUM WASH</th><th style="text-align:right">COMPLETE DETAILING</th></tr>
+                <tr><th>Vehicle Category</th><th style="text-align:right">Basic</th><th style="text-align:right">Premium</th><th style="text-align:right">Full Detail</th></tr>
             </thead>
             <tbody>
                 <tr><td>Hatchback</td><td class="price-col">₹249</td><td class="price-col">₹399</td><td class="price-col">₹899</td></tr>
                 <tr><td>Sedan</td><td class="price-col">₹299</td><td class="price-col">₹449</td><td class="price-col">₹999</td></tr>
                 <tr><td>Compact SUV</td><td class="price-col">₹349</td><td class="price-col">₹499</td><td class="price-col">₹1099</td></tr>
-                <tr><td>SUV</td><td class="price-col">₹399</td><td class="price-col">₹599</td><td class="price-col">₹1299</td></tr>
-                <tr><td>MPV</td><td class="price-col">₹449</td><td class="price-col">₹649</td><td class="price-col">₹1399</td></tr>
+                <tr><td>Full SUV / Luxury</td><td class="price-col">₹399</td><td class="price-col">₹599</td><td class="price-col">₹1299</td></tr>
             </tbody>
         </table>
     </div>
@@ -380,4 +379,9 @@
     slider.addEventListener('input', (e) => {
         const val = e.target.value;
         beforeImg.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
-        line.style.left = 
+        line.style.left = `${val}%`;
+        button.style.left = `${val}%`;
+    });
+
+    // Booking logic
+    document.getElementById('serviceForm').addEvent
