@@ -78,7 +78,14 @@
         }
 
         header { padding: 60px 0 30px 0; text-align: center; }
-        .logo { width: 85%; max-width: 450px; height: auto; filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.2)); animation: fadeIn 1.5s ease-in-out; }
+
+        .logo { 
+            width: 85%; 
+            max-width: 450px; 
+            height: auto; 
+            filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.2));
+            animation: fadeIn 1.5s ease-in-out;
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
@@ -97,6 +104,7 @@
             filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
             font-weight: 800;
         }
+
         @keyframes gold-shine { to { background-position: 200% center; } }
 
         .brand-title { font-size: 1.8rem; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
@@ -130,7 +138,7 @@
             touch-action: pan-y;
         }
         .comparison-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
-        .img-before { z-index: 2; clip-path: inset(0 50% 0 0); }
+        .img-before { z-index: 1; clip-path: inset(0 50% 0 0); }
         .comparison-slider {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: transparent; z-index: 10; cursor: ew-resize; appearance: none; outline: none; margin: 0;
@@ -146,14 +154,14 @@
         .label-before { left: 20px; }
         .label-after { right: 20px; color: var(--gold); }
 
-        /* PILLAR CARDS */
+        /* STANDARD SECTIONS */
         .standard-section { padding: 40px 20px; max-width: 850px; margin: 0 auto; text-align: center; }
         .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 30px; }
         .pillar-card { border: 1px solid var(--thin-border); padding: 25px 15px; border-radius: 4px; transition: 0.4s; background: rgba(255,255,255,0.02); }
         .pillar-card:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.08); transform: translateY(-8px); }
         .pillar-icon { color: var(--gold); font-size: 1.8rem; margin-bottom: 15px; display: block; }
 
-        /* CERAMIC UPGRADE CARD */
+        /* NEW CERAMIC CARD STYLING */
         .ceramic-upgrade-card {
             max-width: 600px;
             margin: 40px auto;
@@ -176,6 +184,9 @@
             font-size: 0.7rem;
             font-weight: 700;
             color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         .card-stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 3px; display: block; margin-bottom: 15px; }
         .card-title { font-size: 1.8rem; font-weight: 800; color: #fff; margin: 10px 0; line-height: 1.2; }
@@ -200,7 +211,7 @@
         }
         .wa-icon-small { width: 22px; height: 22px; margin-right: 10px; }
 
-        /* PRICING TABLE */
+        /* PRICING & BOOKING */
         .pricing-section { padding: 20px 20px 40px 20px; max-width: 850px; margin: 0 auto; }
         .table-container { overflow-x: auto; background: rgba(255,255,255,0.01); border: 1px solid var(--thin-border); border-radius: 8px; }
         table { width: 100%; border-collapse: collapse; min-width: 450px; }
@@ -208,7 +219,6 @@
         td { padding: 12px 20px; font-size: 0.8rem; border-bottom: 1px solid #111; }
         .price-col { font-weight: 700; color: white; text-align: right; }
 
-        /* BOOKING FORM */
         .booking-section { padding: 40px 20px; max-width: 600px; margin: 40px auto; background: #0a0a0a; border: 1px solid var(--thin-border); border-radius: 12px; }
         .booking-form { display: grid; gap: 15px; text-align: left; }
         .form-group { display: flex; flex-direction: column; gap: 5px; }
@@ -223,6 +233,7 @@
 
         footer { text-align: center; color: #666; font-size: 0.6rem; padding-bottom: 30px; }
 
+        @keyframes border-dance { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         @media (max-width: 600px) { .pillar-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -247,18 +258,21 @@
         <h2 style="font-size: 1.5rem; margin-top: 5px;">BEFORE & AFTER</h2>
     </div>
     <div class="comparison-container">
-        <img src="after.jpg" class="comparison-img" style="z-index: 1;" alt="After Finish">
-        <img src="before.jpg" class="comparison-img img-before" id="beforeImg" style="z-index: 2;" alt="Before Uncleaned">
+        <div class="label-badge label-before">Uncleaned</div>
+        <div class="label-badge label-after">Xpert911 Finish</div>
+        <img src="after.jpg" class="comparison-img img-after" alt="Car after detailing service in Calicut">
+        <img src="before.jpg" class="comparison-img img-before" id="beforeImg" alt="Car before detailing service">
         <div class="slider-line" id="sliderLine"></div>
         <div class="slider-button" id="sliderBtn"></div>
         <input type="range" min="0" max="100" value="50" class="comparison-slider" id="comparisonSlider">
-        <div class="label-badge label-before">Uncleaned</div>
-        <div class="label-badge label-after">Xpert911 Finish</div>
     </div>
     <p style="font-size: 0.6rem; color: #666; margin-top: 10px;">Drag the slider to see the Xpert911 difference</p>
 </section>
 
 <section class="standard-section">
+    <div class="section-header">
+        <h3 class="gold-glow-text" style="font-size: 0.9rem; letter-spacing: 4px;">CALICUT'S BEST CAR CARE STANDARDS</h3>
+    </div>
     <div class="pillar-grid">
         <div class="pillar-card"><span class="pillar-icon">✨</span><h4>Ceramic Friendly</h4><p>PH-Neutral soaps safe for coatings and premium waxes.</p></div>
         <div class="pillar-card"><span class="pillar-icon">🧼</span><h4>Steam Interior Spa</h4><p>Full interior sterilization and deep cleaning at your home.</p></div>
@@ -270,15 +284,31 @@
     <div class="ceramic-upgrade-card">
         <div class="card-badge">⏱ 45 MINS</div>
         <span class="card-stars">★★★★★</span>
+        
         <h2 class="card-title">Ceramic-Effect Premium Wash</h2>
-        <p class="card-desc">Our advanced premium shampoo delivers a <strong style="color:#fff;">deep gloss finish</strong> and a <strong style="color:var(--gold-light);">ceramic-like shine.</strong></p>
+        
+        <p class="card-desc">
+            Our advanced premium shampoo delivers a <strong style="color:#fff;">deep gloss finish</strong> and a <strong style="color:var(--gold-light);">ceramic-like shine.</strong>
+        </p>
+
         <div class="card-upgrade-label">Upgrade for only</div>
         <div class="card-price">₹599</div>
+
         <div class="card-feature-grid">
-            <div class="card-feature-item"><span class="card-feature-icon">✨</span><span class="card-feature-text">Gloss</span></div>
-            <div class="card-feature-item"><span class="card-feature-icon">🛡️</span><span class="card-feature-text">Shield</span></div>
-            <div class="card-feature-item"><span class="card-feature-icon">💧</span><span class="card-feature-text">Slick</span></div>
+            <div class="card-feature-item">
+                <span class="card-feature-icon">✨</span>
+                <span class="card-feature-text">Gloss</span>
+            </div>
+            <div class="card-feature-item">
+                <span class="card-feature-icon" style="filter: brightness(1.2);">🛡️</span>
+                <span class="card-feature-text">Shield</span>
+            </div>
+            <div class="card-feature-item">
+                <span class="card-feature-icon">💧</span>
+                <span class="card-feature-text">Slick</span>
+            </div>
         </div>
+
         <a href="https://wa.me/917356204215" class="card-footer-cta">
             <div style="display:flex; align-items:center;">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon-small" alt="WA">
@@ -309,30 +339,27 @@
 
 <section class="booking-section" id="booking">
     <div class="section-header" style="text-align: center; margin-bottom: 25px;">
+        <div style="display: inline-block; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); padding: 4px 12px; border-radius: 20px; margin-bottom: 10px;">
+            <span style="font-size: 0.6rem; color: var(--gold); font-weight: 800;">SERVICE HOURS: 7 AM — 11 PM</span>
+        </div>
         <h3 class="gold-glow-text" style="font-size: 1.2rem;">Book Appointment Now</h3>
     </div>
     <form class="booking-form" id="serviceForm">
         <div class="form-group"><label>Customer Name</label><input type="text" id="custName" placeholder="Enter your name" required></div>
-        <div class="form-group"><label>Vehicle Details</label><input type="text" id="custVehicle" placeholder="e.g. BMW, Thar, Innova" required></div>
+        <div class="form-group"><label>Vehicle Details</label><input type="text" id="custVehicle" placeholder="e.g. BMW 3 Series, Thar" required></div>
         <div class="form-group">
             <label>Choose Service</label>
             <select id="custService" required>
                 <option value="Premium Wash">Premium Ceramic Wash (₹599)</option>
-                <option value="Basic Wash">Basic Wash</option>
-                <option value="Complete Detailing">Complete Interior + Exterior</option>
+                <option value="Basic Wash">Basic Wash (Exterior)</option>
+                <option value="Complete Detailing">Complete Interior + Exterior Detail</option>
             </select>
         </div>
         <div style="display: flex; gap: 10px;">
             <div class="form-group" style="flex: 1;"><label>Date</label><input type="date" id="custDate" required></div>
-            <div class="form-group" style="flex: 1;"><label>Time</label><input type="time" id="custTime" required></div>
+            <div class="form-group" style="flex: 1;"><label>Time</label><input type="time" id="custTime" min="07:00" max="23:00" required></div>
         </div>
-        <div class="form-group">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <label>Location in Calicut</label>
-                <button type="button" id="getLocationBtn" style="background: none; border: 1px solid var(--gold); color: var(--gold); font-size: 0.6rem; padding: 2px 8px; border-radius: 4px; cursor: pointer;">📍 Get My Location</button>
-            </div>
-            <textarea id="custLoc" rows="2" placeholder="Street Name / House Number" required></textarea>
-        </div>
+        <div class="form-group"><label>Service Location in Calicut</label><textarea id="custLoc" rows="2" placeholder="Street Name / House Number" required></textarea></div>
         <button type="submit" class="btn-submit">Book via WhatsApp</button>
     </form>
 </section>
@@ -345,28 +372,12 @@
 <footer><p>© 2026 XPERT911 AUTO CARE | MOBILE CAR DETAILING KOZHIKODE</p></footer>
 
 <script>
-    // 1. SLIDER LOGIC
+    // Comparison Slider Logic
     const slider = document.getElementById('comparisonSlider');
     const beforeImg = document.getElementById('beforeImg');
     const line = document.getElementById('sliderLine');
-    const btn = document.getElementById('sliderBtn');
-    
+    const button = document.getElementById('sliderBtn');
     slider.addEventListener('input', (e) => {
-        let val = e.target.value;
+        const val = e.target.value;
         beforeImg.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
-        line.style.left = `${val}%`;
-        btn.style.left = `${val}%`;
-    });
-
-    // 2. GPS LOGIC
-    document.getElementById('getLocationBtn').addEventListener('click', function() {
-        const locTextArea = document.getElementById('custLoc');
-        const b = this;
-        if (navigator.geolocation) {
-            b.innerText = "⌛ Detecting...";
-            navigator.geolocation.getCurrentPosition(async (pos) => {
-                const lat = pos.coords.latitude;
-                const lon = pos.coords.longitude;
-                try {
-                    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
-            
+        line.style.left = 
