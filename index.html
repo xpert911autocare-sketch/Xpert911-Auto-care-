@@ -161,9 +161,24 @@
         .pillar-card:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.08); transform: translateY(-8px); }
         .pillar-icon { color: var(--gold); font-size: 1.8rem; margin-bottom: 15px; display: block; }
 
+        /* NEW ENHANCED STAR FEATURE AD */
         .star-feature-container { margin: 40px 20px 0 20px; padding: 2px; border-radius: 20px 20px 0 0; background: var(--gold-gradient); background-size: 300% 300%; animation: border-dance 4s linear infinite; }
-        .star-inner { background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%); padding: 30px 20px; border-radius: 18px 18px 0 0; text-align: center; }
-        .price-highlight .amount { color: #fff; font-size: 2.2rem; font-weight: 900; }
+        .star-inner { background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%); padding: 40px 25px; border-radius: 18px 18px 0 0; text-align: center; position: relative; overflow: hidden;}
+        .star-inner::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%); pointer-events: none; }
+        
+        .ad-badge { display: inline-block; background: var(--gold); color: black; font-size: 0.6rem; font-weight: 900; padding: 3px 12px; border-radius: 50px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; animation: pulse-gold 2s infinite; }
+        .ad-title { color: white; font-size: 1.8rem; font-weight: 800; margin: 0; line-height: 1.2; }
+        .ad-subtitle { color: var(--gold); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; margin: 10px 0 20px 0; display: block; }
+        
+        .ad-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; margin: 25px 0; border-top: 1px solid rgba(212,175,55,0.2); padding-top: 25px; }
+        .detail-item { font-size: 0.75rem; color: #ccc; display: flex; align-items: center; gap: 8px; }
+        .detail-item span { color: var(--gold); font-weight: bold; }
+        
+        .price-highlight { margin-top: 20px; }
+        .price-highlight .amount { color: #fff; font-size: 3rem; font-weight: 900; text-shadow: 0 0 20px rgba(212,175,55,0.4); }
+        .price-highlight .currency { font-size: 1.2rem; vertical-align: super; margin-right: 2px; }
+
+        @keyframes pulse-gold { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
 
         /* PRICING & BOOKING */
         .pricing-section { padding: 20px 20px 40px 20px; max-width: 850px; margin: 0 auto; }
@@ -173,7 +188,6 @@
         td { padding: 12px 20px; font-size: 0.8rem; border-bottom: 1px solid #111; }
         .price-col { font-weight: 700; color: white; text-align: right; }
         
-        /* New styling for Table Title */
         .table-title { text-align: center; padding: 15px; font-size: 0.85rem; letter-spacing: 5px; color: var(--gold); border-bottom: 1px solid var(--thin-border); text-transform: uppercase; font-weight: 400; }
 
         .booking-section { padding: 40px 20px; max-width: 600px; margin: 40px auto; background: #0a0a0a; border: 1px solid var(--thin-border); border-radius: 12px; }
@@ -191,7 +205,11 @@
         footer { text-align: center; color: #444; font-size: 0.6rem; padding-bottom: 30px; }
 
         @keyframes border-dance { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @media (max-width: 600px) { .pillar-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) { 
+            .pillar-grid { grid-template-columns: 1fr; }
+            .ad-details-grid { grid-template-columns: 1fr; }
+            .ad-title { font-size: 1.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -239,11 +257,22 @@
 
 <div class="star-feature-container">
     <div class="star-inner">
-        <h2 class="star-title" style="color:white; margin-bottom:10px;">Premium Doorstep Ceramic Wash</h2>
-        <p style="color:#bbb; font-size:0.9rem;">Advanced hydrophobic shampoo for a <strong>showroom gloss finish</strong>.</p>
+        <div class="ad-badge">Premium Choice</div>
+        <h2 class="ad-title">Elite Ceramic Infused Wash</h2>
+        <span class="ad-subtitle">The Ultimate Showroom Reflection</span>
+        
+        <div class="ad-details-grid">
+            <div class="detail-item"><span>✓</span> Hydrophobic Shield</div>
+            <div class="detail-item"><span>✓</span> UV Ray Protection</div>
+            <div class="detail-item"><span>✓</span> Mirror-Finish Gloss</div>
+            <div class="detail-item"><span>✓</span> Dirt Repellent Tech</div>
+        </div>
+
+        <p style="color:#888; font-size:0.8rem; margin: 0;">Experience our advanced Si02 coating technology that keeps your car cleaner, longer.</p>
+        
         <div class="price-highlight">
-            <span style="display:block; color:var(--gold); font-size:0.7rem; text-transform:uppercase;">Best Value Service</span>
-            <span class="amount">₹599</span>
+            <span style="display:block; color:var(--gold); font-size:0.7rem; text-transform:uppercase; letter-spacing:2px;">Starting From</span>
+            <span class="amount"><span class="currency">₹</span>599</span>
         </div>
     </div>
 </div>
@@ -324,30 +353,4 @@
     const button = document.getElementById('sliderBtn');
     slider.addEventListener('input', (e) => {
         const val = e.target.value;
-        beforeImg.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
-        line.style.left = `${val}%`;
-        button.style.left = `${val}%`;
-    });
-
-    // Booking Logic
-    document.getElementById('serviceForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const time = document.getElementById('custTime').value;
-        const hr = parseInt(time.split(':'));
-        if(hr < 7 || hr >= 23) { alert("Service hours are 7 AM to 11 PM. Please select a valid slot."); return; }
-        
-        const msg = `*Xpert911 Booking Request*%0A*Name:* ${document.getElementById('custName').value}%0A*Vehicle:* ${document.getElementById('custVehicle').value}%0A*Service:* ${document.getElementById('custService').value}%0A*Date:* ${document.getElementById('custDate').value}%0A*Time:* ${time}%0A*Location:* ${document.getElementById('custLoc').value}`;
-        window.open(`https://wa.me/917356204215?text=${msg}`, '_blank');
-    });
-
-    // Share Logic
-    const handleShare = async () => {
-        const data = { title: 'Xpert911 Auto Care', text: 'Best Mobile Car Detailing in Calicut', url: window.location.href };
-        try { navigator.share ? await navigator.share(data) : (await navigator.clipboard.writeText(data.url), alert('Link Copied!')); } catch(e){}
-    };
-    document.getElementById('mainShareBtn').addEventListener('click', handleShare);
-    document.getElementById('stickyShareBtn').addEventListener('click', (e) => { e.preventDefault(); handleShare(); });
-</script>
-
-</body>
-</html>
+        beforeImg.style.clipPath = `inset(0 ${1
