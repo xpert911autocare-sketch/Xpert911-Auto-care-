@@ -8,12 +8,11 @@
     <style>
         :root {
             --gold: #d4af37;
-            --gold-light: #f1d592;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f1d592 50%, #d4af37 100%);
             --deep-black: #050505;
             --card-bg: #0d0d0d;
             --soft-white: #e0e0e0;
             --whatsapp: #25D366;
-            --thin-border: rgba(212, 175, 55, 0.2);
         }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
@@ -30,67 +29,65 @@
         .nav-link { color: #888; text-decoration: none; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         .nav-link.active-link { color: var(--gold); border-bottom: 1px solid var(--gold); }
 
-        /* HERO */
-        .hero { padding: 40px 20px; text-align: center; }
+        /* HERO & TITLES */
         .gold-glow { 
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); 
             background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
             animation: gold-shine 4s linear infinite; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
         }
         @keyframes gold-shine { to { background-position: 200% center; } }
+        .divider { width: 40px; height: 1px; background: var(--gold); margin: 15px auto; position: relative; }
+        .divider::after { content: '◆'; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--gold); }
 
         /* THE XPERT911 STANDARD - 6 PILLARS */
         .standard-section { padding: 40px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
-        .promise-tag { font-size: 0.55rem; letter-spacing: 4px; color: #888; text-transform: uppercase; margin-bottom: 5px; }
-        .standard-title { font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; margin-top: 0; }
-        .divider { width: 40px; height: 1px; background: var(--gold); margin: 15px auto; position: relative; }
-        .divider::after { content: '◆'; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--gold); }
-        
-        .pillar-stack { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
+        .pillar-stack { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 30px; }
+        @media (min-width: 600px) { .pillar-stack { grid-template-columns: 1fr 1fr; } }
         .pillar-card { border: 1px solid #1a1a1a; padding: 25px 20px; border-radius: 4px; background: var(--card-bg); text-align: center; }
         .pillar-card h4 { font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; margin: 8px 0; color: white; font-weight: 800; }
         .pillar-card p { font-size: 0.6rem; color: #666; margin: 0; }
 
-        /* TRANSPARENT PRICING TABLE */
-        .pricing-container { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
-        .pricing-header { text-align: center; margin-bottom: 30px; }
-        .pricing-header p { font-size: 0.6rem; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin: 0; font-weight: 800; }
-        .pricing-header h2 { font-size: 1.6rem; font-weight: 800; text-transform: uppercase; margin: 5px 0; letter-spacing: 1px; }
+        /* CERAMIC UPGRADE BOX */
+        .upgrade-section { padding: 20px; max-width: 600px; margin: 0 auto; }
+        .upgrade-box { border: 1px solid var(--gold); border-radius: 20px; padding: 30px 20px; text-align: center; background: #080808; position: relative; }
+        .timer-badge { background: #1a1a1a; padding: 4px 10px; border-radius: 4px; font-size: 0.55rem; color: #fff; position: absolute; top: 15px; right: 15px; }
+        .upgrade-title { font-size: 1.4rem; font-weight: 800; color: white; margin: 10px 0; }
+        .price-hero { font-size: 2.2rem; font-weight: 800; color: white; margin: 15px 0; display: block; }
+        .feat-grid { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        .feat-pill { border: 1px solid #222; padding: 8px 15px; border-radius: 8px; font-size: 0.55rem; text-transform: uppercase; color: #777; }
 
-        .rates-table-wrapper { border: 1px solid var(--gold); border-radius: 8px; overflow: hidden; background: #080808; }
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th { padding: 15px 20px; font-size: 0.6rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #1a1a1a; }
-        td { padding: 15px 20px; font-size: 0.8rem; color: #ccc; border-bottom: 1px solid #111; }
-        
-        .category-row { background: rgba(0,0,0,0.5); }
-        .category-row td { font-size: 0.55rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; padding: 10px 20px; border-bottom: 1px solid #1a1a1a; }
-        
-        .duration-col { font-size: 0.75rem; color: #666; }
-        .price-col { font-weight: 800; color: white; text-align: right; }
+        /* PRICING TABLES */
+        .pricing-section { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+        .section-label { text-align: center; font-size: 0.6rem; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; font-weight: 800; }
+        .section-title { text-align: center; font-size: 1.6rem; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; }
 
-        /* BEST SELLER BADGE */
-        .best-seller-inline { display: inline-flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+        .table-card { border: 1px solid #1a1a1a; border-radius: 8px; overflow: hidden; background: #080808; margin-bottom: 40px; }
+        table { width: 100%; border-collapse: collapse; min-width: 500px; }
+        .table-scroll { overflow-x: auto; }
+        th { text-align: left; padding: 15px 20px; font-size: 0.6rem; color: var(--gold); text-transform: uppercase; border-bottom: 1px solid #1a1a1a; }
+        td { padding: 15px 20px; font-size: 0.8rem; border-bottom: 1px solid #111; color: #ccc; }
+        .cat-row td { background: #000; color: var(--gold); font-size: 0.55rem; letter-spacing: 2px; font-weight: 800; text-transform: uppercase; }
+        .price-cell { font-weight: 800; color: white; text-align: right; }
+        
+        /* VEHICLE GRID SPECIFICS */
+        .premium-highlight { background: rgba(212, 175, 55, 0.05); }
+        .bs-container { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
         .bs-badge { background: var(--gold-gradient); color: black; font-size: 0.45rem; font-weight: 900; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; }
 
         /* BOOKING FORM */
         .booking-section { max-width: 600px; margin: 40px auto; padding: 20px; }
-        .book-title { font-size: 1.6rem; text-transform: uppercase; text-align: center; letter-spacing: 2px; font-weight: 800; margin: 0; }
-        .book-subtitle { font-size: 0.7rem; color: #555; text-align: center; margin-bottom: 35px; }
         .input-group { margin-bottom: 20px; }
         .input-group label { font-size: 0.65rem; color: var(--gold); text-transform: uppercase; font-weight: 800; margin-bottom: 8px; display: block; }
         .input-group input, .input-group select, .input-group textarea {
             background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 4px; color: white; padding: 15px; width: 100%; box-sizing: border-box; font-size: 0.85rem;
         }
-        .btn-wa-form { border: 1px solid var(--gold); background: transparent; color: var(--gold); padding: 16px; text-transform: uppercase; font-weight: 800; cursor: pointer; border-radius: 4px; width: 100%; margin-top: 10px; transition: 0.3s; }
-        .btn-wa-form:hover { background: var(--gold); color: black; }
+        .btn-wa { border: 1px solid var(--gold); background: transparent; color: var(--gold); padding: 16px; text-transform: uppercase; font-weight: 800; cursor: pointer; border-radius: 4px; width: 100%; transition: 0.3s; }
 
         /* BOTTOM BAR */
         .bottom-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #050505; padding: 12px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; box-sizing: border-box; border-top: 1px solid #111; z-index: 2000; }
-        .bar-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; text-decoration: none; border-radius: 6px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
+        .bar-btn { display: flex; align-items: center; justify-content: center; padding: 14px; text-decoration: none; border-radius: 6px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
         .bar-call { background: #111; border: 1px solid #222; color: white; }
-        .bar-wa { background: var(--whatsapp); color: black; }
-
-        @media (max-width: 600px) { th, td { padding: 12px 15px; } }
+        .bar-whatsapp { background: var(--whatsapp); color: black; }
     </style>
 </head>
 <body>
@@ -108,13 +105,9 @@
     </div>
 </header>
 
-<section class="hero reveal">
-    <h1 class="gold-glow">Xpert911 Autocare</h1>
-</section>
-
-<section id="about" class="standard-section reveal">
-    <p class="promise-tag">Our Promise</p>
-    <h2 class="standard-title">The <span class="gold-glow">Xpert911</span> Standard</h2>
+<section class="standard-section reveal">
+    <p class="section-label">Our Promise</p>
+    <h2 class="section-title">The <span class="gold-glow">Xpert911</span> Standard</h2>
     <div class="divider"></div>
     <div class="pillar-stack">
         <div class="pillar-card"><h4>Mobile Service</h4><p>We come to your home, office or anywhere convenient</p></div>
@@ -126,70 +119,92 @@
     </div>
 </section>
 
-<section id="pricing" class="pricing-container reveal">
-    <div class="pricing-header">
-        <p>Transparent Pricing</p>
-        <h2>All Services & Rates</h2>
-        <div class="divider"></div>
+<section class="upgrade-section reveal">
+    <div class="upgrade-box">
+        <div class="timer-badge">⏱ 45 MINS</div>
+        <h2 class="upgrade-title">Ceramic-Effect Premium Wash</h2>
+        <p style="font-size: 0.75rem; color: #888;">Advanced formula for a deep gloss finish and ceramic-like shine.</p>
+        <span class="price-hero">₹599</span>
+        <div class="feat-grid">
+            <div class="feat-pill">✨ Gloss</div>
+            <div class="feat-pill">🛡 Shield</div>
+            <div class="feat-pill">💧 Slick</div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="pricing-section reveal">
+    <p class="section-label">Transparent Pricing</p>
+    <h2 class="section-title">All Services & Rates</h2>
+    <div class="divider"></div>
+
+    <div class="table-card table-scroll">
+        <table>
+            <thead><tr><th>Service</th><th>Duration</th><th style="text-align:right">Price</th></tr></thead>
+            <tbody>
+                <tr class="cat-row"><td colspan="3">-- Wash Services --</td></tr>
+                <tr><td>Basic Exterior Wash</td><td>20-30 min</td><td class="price-cell">₹249</td></tr>
+                <tr><td>Foam Cannon Wash</td><td>30-40 min</td><td class="price-cell">₹349</td></tr>
+                <tr><td>Full Exterior Detail</td><td>60-75 min</td><td class="price-cell">₹599</td></tr>
+                <tr class="cat-row"><td colspan="3">-- Interior Services --</td></tr>
+                <tr><td>Interior Vacuum & Wipe</td><td>30-45 min</td><td class="price-cell">₹399</td></tr>
+                <tr><td>Interior Steam Clean</td><td>60-90 min</td><td class="price-cell">₹699</td></tr>
+                <tr><td>Full Interior Detail</td><td>2-3 hrs</td><td class="price-cell">₹999</td></tr>
+                <tr class="cat-row"><td colspan="3">-- Combo Packages --</td></tr>
+                <tr><td>Basic Combo (In + Out)</td><td>60-75 min</td><td class="price-cell">₹599</td></tr>
+                <tr><td>Premium Full Detail</td><td>90-120 min</td><td class="price-cell"><div class="bs-container"><span class="bs-badge">Best Seller</span>₹899</div></td></tr>
+                <tr><td>Elite Signature Detail</td><td>3-4 hrs</td><td class="price-cell">₹2,499</td></tr>
+            </tbody>
+        </table>
     </div>
 
-    <div class="rates-table-wrapper">
+    <p class="section-label">Service Description</p>
+    <h2 class="section-title">Vehicle-Specific Rates</h2>
+    <div class="table-card table-scroll">
         <table>
             <thead>
                 <tr>
-                    <th>Service</th>
-                    <th>Duration</th>
-                    <th style="text-align:right">Price</th>
+                    <th>Vehicle Type</th>
+                    <th style="text-align:right">Basic Wash</th>
+                    <th style="text-align:right">Premium Wash</th>
+                    <th style="text-align:right">Complete Detailing</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="category-row"><td colspan="3">-- Wash Services --</td></tr>
-                <tr><td>Basic Exterior Wash</td><td class="duration-col">20-30 min</td><td class="price-col">₹249</td></tr>
-                <tr><td>Foam Cannon Wash</td><td class="duration-col">30-40 min</td><td class="price-col">₹349</td></tr>
-                <tr><td>Full Exterior Detail</td><td class="duration-col">60-75 min</td><td class="price-col">₹599</td></tr>
-                
-                <tr class="category-row"><td colspan="3">-- Interior Services --</td></tr>
-                <tr><td>Interior Vacuum & Wipe</td><td class="duration-col">30-45 min</td><td class="price-col">₹399</td></tr>
-                <tr><td>Interior Steam Clean</td><td class="duration-col">60-90 min</td><td class="price-col">₹699</td></tr>
-                <tr><td>Full Interior Detail</td><td class="duration-col">2-3 hrs</td><td class="price-col">₹999</td></tr>
-                
-                <tr class="category-row"><td colspan="3">-- Combo Packages --</td></tr>
-                <tr><td>Basic Combo (In + Out)</td><td class="duration-col">60-75 min</td><td class="price-col">₹599</td></tr>
                 <tr>
-                    <td>Premium Full Detail</td>
-                    <td class="duration-col">90-120 min</td>
-                    <td class="price-col">
-                        <div class="best-seller-inline">
-                            <span class="bs-badge">Best Seller</span>
-                            ₹899
-                        </div>
+                    <td>Hatchback</td>
+                    <td class="price-cell">₹249</td>
+                    <td class="price-cell premium-highlight">
+                        <div class="bs-container"><span class="bs-badge">Best Seller</span>₹399</div>
                     </td>
+                    <td class="price-cell">₹899</td>
                 </tr>
-                <tr><td>Elite Signature Detail</td><td class="duration-col">3-4 hrs</td><td class="price-col">₹2,499</td></tr>
+                <tr><td>Sedan</td><td class="price-cell">₹299</td><td class="price-cell premium-highlight">₹449</td><td class="price-cell">₹999</td></tr>
+                <tr><td>Compact SUV</td><td class="price-cell">₹349</td><td class="price-cell premium-highlight">₹499</td><td class="price-cell">₹1099</td></tr>
+                <tr><td>SUV</td><td class="price-cell">₹399</td><td class="price-cell premium-highlight">₹599</td><td class="price-cell">₹1299</td></tr>
+                <tr><td>MPV</td><td class="price-cell">₹449</td><td class="price-cell premium-highlight">₹649</td><td class="price-cell">₹1399</td></tr>
             </tbody>
         </table>
     </div>
 </section>
 
 <section id="book" class="booking-section reveal">
-    <h2 class="book-title">Book An Appointment</h2>
-    <p class="book-subtitle">We'll confirm via WhatsApp within 30 minutes</p>
-    <form class="booking-form" id="waForm">
+    <h2 class="section-title">Book An Appointment</h2>
+    <p style="text-align:center; font-size:0.7rem; color:#555; margin-bottom:30px;">Confirmation via WhatsApp within 30 minutes</p>
+    <form id="waForm">
         <div class="input-group"><label>Your Name</label><input type="text" id="name" placeholder="Full name" required></div>
         <div class="input-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required></div>
         <div class="input-group"><label>Vehicle</label><input type="text" id="vehicle" placeholder="e.g. Honda City"></div>
-        <div class="input-group">
-            <label>Service</label>
+        <div class="input-group"><label>Service</label>
             <select id="service" required>
                 <option value="" disabled selected>Select a service...</option>
-                <option>Basic Exterior Wash</option>
                 <option>Premium Full Detail</option>
-                <option>Elite Signature Detail</option>
+                <option>Basic Exterior Wash</option>
+                <option>Complete Detailing</option>
             </select>
         </div>
         <div class="input-group"><label>Preferred Date</label><input type="date" id="date" required></div>
-        <div class="input-group">
-            <label>Preferred Time</label>
+        <div class="input-group"><label>Preferred Time</label>
             <select id="time" required>
                 <option value="" disabled selected>Select time...</option>
                 <option>Morning (9AM - 12PM)</option>
@@ -197,14 +212,14 @@
                 <option>Evening (4PM - 8PM)</option>
             </select>
         </div>
-        <div class="input-group"><label>Location / Address</label><textarea id="location" placeholder="Your address or landmark in Calicut..." rows="2" required></textarea></div>
-        <button type="submit" class="btn-wa-form">Send Booking Via WhatsApp →</button>
+        <div class="input-group"><label>Location</label><textarea id="location" placeholder="Your address in Calicut..." rows="2" required></textarea></div>
+        <button type="submit" class="btn-wa">Send Booking Via WhatsApp →</button>
     </form>
 </section>
 
 <div class="bottom-bar">
     <a href="tel:+917356204215" class="bar-btn bar-call">Call Now</a>
-    <a href="https://wa.me/917356204215" class="bar-btn bar-wa">WhatsApp</a>
+    <a href="https://wa.me/917356204215" class="bar-btn bar-whatsapp">WhatsApp</a>
 </div>
 
 <script>
