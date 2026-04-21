@@ -58,8 +58,6 @@
       --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f1d592 50%, #d4af37 100%);
     }
 
-    /* FIX 1: Removed border from html to prevent sticky bar clipping.
-       Border moved to a pseudo-element on body so it doesn't interfere with layout. */
     html {
       min-height: 100%;
       box-sizing: border-box;
@@ -75,7 +73,6 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       padding-bottom: 80px;
-      /* Replaced html border with a fixed inset outline so the sticky bar isn't clipped */
       outline: 2px solid var(--gold);
       outline-offset: -2px;
     }
@@ -135,8 +132,9 @@
     }
     .social-link:hover { background: var(--gold); color: black; border-color: var(--gold); }
 
-    /* BEFORE & AFTER SLIDER */
+    /* ── BEFORE & AFTER SLIDER ── */
     .comparison-section { padding: 40px 20px; max-width: 850px; margin: 0 auto; text-align: center; }
+
     .comparison-container {
       position: relative;
       width: 100%;
@@ -145,8 +143,11 @@
       border: 1px solid var(--thin-border);
       border-radius: 8px;
       background: #111;
-      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+      /* NO touch-action here — the overlay owns it */
     }
+
     .comparison-img {
       position: absolute;
       top: 0; left: 0;
@@ -154,23 +155,12 @@
       object-fit: cover;
       display: block;
       pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
     }
-    .img-before { z-index: 1; clip-path: inset(0 50% 0 0); }
 
-    /* FIX 2: Range input fully transparent so it captures events over the whole container */
-    .comparison-slider {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: transparent;
-      z-index: 10;
-      cursor: ew-resize;
-      -webkit-appearance: none;
-      appearance: none;
-      outline: none;
-      margin: 0;
-      opacity: 0; /* invisible but still interactive */
-    }
+    .img-before { z-index: 1; clip-path: inset(0 50% 0 0); }
 
     .slider-line {
       position: absolute;
@@ -183,13 +173,11 @@
       pointer-events: none;
     }
 
-    /* FIX 3: slider-button uses both left AND transform correctly;
-       JS will override left% and keep translateY(-50%) */
     .slider-button {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 40px; height: 40px;
+      width: 44px; height: 44px;
       background: var(--gold);
       border-radius: 50%;
       z-index: 6;
@@ -197,10 +185,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
       pointer-events: none;
+      font-size: 1.1rem;
+      color: #000;
+      font-weight: bold;
+      line-height: 1;
     }
-    .slider-button::before { content: '⇄'; color: black; font-weight: bold; }
+
+    /*
+      THE KEY FIX FOR INSTAGRAM WEBVIEW:
+      touch-action:none on this overlay tells the WebView it must NOT
+      intercept horizontal swipes for scrolling — so our JS gets them.
+    */
+    .slider-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 10;
+      cursor: ew-resize;
+      touch-action: none;
+      -ms-touch-action: none;
+      background: transparent;
+    }
 
     .label-badge {
       position: absolute;
@@ -216,7 +223,7 @@
     .label-before { left: 20px; }
     .label-after  { right: 20px; color: var(--gold); }
 
-    /* STANDARDS GRID */
+    /* ── STANDARDS GRID ── */
     .standard-section { padding: 40px 20px; max-width: 850px; margin: 0 auto; text-align: center; }
     .pillar-grid {
       display: grid;
@@ -238,8 +245,7 @@
     }
     .pillar-icon { color: var(--gold); font-size: 1.8rem; margin-bottom: 15px; display: block; }
 
-    /* FIX 4: border-dance now works — gradient defined on wrapper with background-size
-       for animation, using a pseudo-element so the content background is separate */
+    /* ── CERAMIC AD ── */
     .star-feature-container {
       margin: 40px 20px 0 20px;
       padding: 2px;
@@ -258,13 +264,11 @@
       background-size: 300% 300%;
       animation: border-dance 4s linear infinite;
     }
-
     @keyframes border-dance {
       0%   { background-position: 0% 50%; }
       50%  { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
     .star-inner {
       background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
       padding: 40px 25px;
@@ -304,7 +308,7 @@
     .detail-item span { color: var(--gold); font-weight: bold; }
     .price-highlight .amount { color: #fff; font-size: 3rem; font-weight: 900; }
 
-    /* PRICING TABLE */
+    /* ── PRICING TABLE ── */
     .pricing-section { padding: 20px 20px 40px 20px; max-width: 850px; margin: 0 auto; }
     .table-container {
       overflow-x: auto;
@@ -325,7 +329,7 @@
     td { padding: 12px 20px; font-size: 0.8rem; border-bottom: 1px solid #111; }
     .price-col { font-weight: 700; color: white; text-align: right; }
 
-    /* BOOKING FORM */
+    /* ── BOOKING FORM ── */
     .booking-section {
       padding: 40px 20px;
       max-width: 600px;
@@ -337,8 +341,6 @@
     .booking-form { display: grid; gap: 15px; text-align: left; }
     .form-group { display: flex; flex-direction: column; gap: 5px; }
     .form-group label { font-size: 0.65rem; text-transform: uppercase; color: var(--gold); }
-
-    /* FIX 5: Added font-family inheritance to form controls */
     .booking-form input,
     .booking-form select,
     .booking-form textarea {
@@ -356,7 +358,6 @@
       outline: 1px solid var(--gold);
       border-color: var(--gold);
     }
-    /* Fix select arrow color on dark bg */
     .booking-form select {
       appearance: none;
       -webkit-appearance: none;
@@ -381,12 +382,12 @@
     }
     .btn-submit:hover { opacity: 0.85; }
 
-    /* MAP */
+    /* ── MAP ── */
     .map-section { padding: 20px; max-width: 850px; margin: 0 auto; }
     .map-wrapper { border: 1px solid var(--thin-border); border-radius: 8px; overflow: hidden; height: 300px; }
     iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(1); }
 
-    /* STICKY BAR */
+    /* ── STICKY BAR ── */
     .sticky-bar {
       position: fixed;
       bottom: 0; left: 0;
@@ -411,7 +412,7 @@
       justify-content: center;
       gap: 8px;
     }
-    .sticky-msg  { color: var(--whatsapp); border-right: 1px solid #222; }
+    .sticky-msg   { color: var(--whatsapp); border-right: 1px solid #222; }
     .sticky-share { color: var(--gold); }
 
     @media (max-width: 600px) {
@@ -440,23 +441,23 @@
     <h3 class="gold-glow-text" style="font-size: 0.8rem; letter-spacing: 4px;">CAR PAINT RESTORATION</h3>
     <h2 style="font-size: 1.5rem; margin-top: 5px;">BEFORE &amp; AFTER</h2>
   </div>
-  <div class="comparison-container">
+  <div class="comparison-container" id="comparisonContainer">
     <div class="label-badge label-before">Uncleaned</div>
     <div class="label-badge label-after">Xpert911 Finish</div>
-    <img src="after.jpg" class="comparison-img img-after" alt="After detailing">
+    <img src="after.jpg"  class="comparison-img img-after"  alt="After detailing">
     <img src="before.jpg" class="comparison-img img-before" id="beforeImg" alt="Before detailing">
-    <div class="slider-line" id="sliderLine"></div>
-    <div class="slider-button" id="sliderBtn"></div>
-    <input type="range" min="0" max="100" value="50" class="comparison-slider" id="comparisonSlider">
+    <div class="slider-line"   id="sliderLine"></div>
+    <div class="slider-button" id="sliderBtn">&#x21C4;</div>
+    <div class="slider-overlay" id="sliderOverlay"></div>
   </div>
   <p style="font-size: 0.6rem; color: #666; margin-top: 10px;">Drag the slider to see the Xpert911 difference</p>
 </section>
 
 <section class="standard-section">
   <div class="pillar-grid">
-    <div class="pillar-card"><span class="pillar-icon">✨</span><h4>Ceramic Friendly</h4><p>PH-Neutral soaps safe for coatings.</p></div>
-    <div class="pillar-card"><span class="pillar-icon">🧼</span><h4>Steam Interior Spa</h4><p>Full interior sterilization at home.</p></div>
-    <div class="pillar-card"><span class="pillar-icon">💎</span><h4>Scratch-Free Method</h4><p>Professional swirl-free washing.</p></div>
+    <div class="pillar-card"><span class="pillar-icon">&#10024;</span><h4>Ceramic Friendly</h4><p>PH-Neutral soaps safe for coatings.</p></div>
+    <div class="pillar-card"><span class="pillar-icon">&#129532;</span><h4>Steam Interior Spa</h4><p>Full interior sterilization at home.</p></div>
+    <div class="pillar-card"><span class="pillar-icon">&#128142;</span><h4>Scratch-Free Method</h4><p>Professional swirl-free washing.</p></div>
   </div>
 </section>
 
@@ -466,14 +467,14 @@
     <h2 class="ad-title">Elite Ceramic Infused Wash</h2>
     <span class="ad-subtitle">The Ultimate Showroom Reflection</span>
     <div class="ad-details-grid">
-      <div class="detail-item"><span>✓</span> Hydrophobic Shield</div>
-      <div class="detail-item"><span>✓</span> UV Ray Protection</div>
-      <div class="detail-item"><span>✓</span> Mirror-Finish Gloss</div>
-      <div class="detail-item"><span>✓</span> Dirt Repellent Tech</div>
+      <div class="detail-item"><span>&#10003;</span> Hydrophobic Shield</div>
+      <div class="detail-item"><span>&#10003;</span> UV Ray Protection</div>
+      <div class="detail-item"><span>&#10003;</span> Mirror-Finish Gloss</div>
+      <div class="detail-item"><span>&#10003;</span> Dirt Repellent Tech</div>
     </div>
     <div class="price-highlight">
       <span style="display:block; color:var(--gold); font-size:0.7rem; text-transform:uppercase;">Starting From</span>
-      <span class="amount">₹599</span>
+      <span class="amount">&#8377;599</span>
     </div>
   </div>
 </div>
@@ -491,11 +492,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Hatchback</td>   <td class="price-col">₹249</td><td class="price-col">₹399</td><td class="price-col">₹899</td></tr>
-        <tr><td>Sedan</td>       <td class="price-col">₹299</td><td class="price-col">₹449</td><td class="price-col">₹999</td></tr>
-        <tr><td>Compact SUV</td> <td class="price-col">₹349</td><td class="price-col">₹499</td><td class="price-col">₹1099</td></tr>
-        <tr><td>Full SUV</td>    <td class="price-col">₹399</td><td class="price-col">₹599</td><td class="price-col">₹1299</td></tr>
-        <tr><td>MPV / Luxury</td><td class="price-col">₹449</td><td class="price-col">₹649</td><td class="price-col">₹1399</td></tr>
+        <tr><td>Hatchback</td>   <td class="price-col">&#8377;249</td><td class="price-col">&#8377;399</td><td class="price-col">&#8377;899</td></tr>
+        <tr><td>Sedan</td>       <td class="price-col">&#8377;299</td><td class="price-col">&#8377;449</td><td class="price-col">&#8377;999</td></tr>
+        <tr><td>Compact SUV</td> <td class="price-col">&#8377;349</td><td class="price-col">&#8377;499</td><td class="price-col">&#8377;1099</td></tr>
+        <tr><td>Full SUV</td>    <td class="price-col">&#8377;399</td><td class="price-col">&#8377;599</td><td class="price-col">&#8377;1299</td></tr>
+        <tr><td>MPV / Luxury</td><td class="price-col">&#8377;449</td><td class="price-col">&#8377;649</td><td class="price-col">&#8377;1399</td></tr>
       </tbody>
     </table>
   </div>
@@ -504,7 +505,7 @@
 <section class="booking-section" id="booking">
   <div class="section-header" style="text-align: center; margin-bottom: 25px;">
     <div style="display: inline-block; border: 1px solid var(--gold); padding: 4px 12px; border-radius: 20px; margin-bottom: 10px;">
-      <span style="font-size: 0.6rem; color: var(--gold); font-weight: 800;">SERVICE HOURS: 7 AM — 11 PM</span>
+      <span style="font-size: 0.6rem; color: var(--gold); font-weight: 800;">SERVICE HOURS: 7 AM &#8212; 11 PM</span>
     </div>
     <h3 class="gold-glow-text" style="font-size: 1.2rem;">Book Appointment Now</h3>
   </div>
@@ -521,7 +522,6 @@
     </div>
     <div style="display: flex; gap: 10px;">
       <div class="form-group" style="flex: 1;"><label>Date</label><input type="date" id="custDate" required></div>
-      <!-- FIX 6: min/max attributes kept for native UI hint; JS validates properly -->
       <div class="form-group" style="flex: 1;"><label>Time</label><input type="time" id="custTime" min="07:00" max="23:00" required></div>
     </div>
     <div class="form-group"><label>Location in Calicut</label><textarea id="custLoc" rows="2" required></textarea></div>
@@ -544,8 +544,15 @@
 </div>
 
 <footer style="text-align:center; padding: 20px; font-size: 0.65rem; color: #555;">
-  <p>© 2026 XPERT911 AUTO CARE | KOZHIKODE</p>
+  <p>&#169; 2026 XPERT911 AUTO CARE | KOZHIKODE</p>
 </footer>
 
 <script>
-  // ─── SLI
+(function () {
+  'use strict';
+
+  /* ── BEFORE / AFTER SLIDER ─────────────────────────────────────────────
+     The single biggest Instagram WebView fix:
+       • NO <input type="range"> — Instagram WebView silently swallows its events
+       • The .slider-overlay div has touch-action:none in CSS, which forces the
+         WebView to hand ALL touc
